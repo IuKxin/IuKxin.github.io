@@ -253,11 +253,163 @@
         
         <span class="tag">
             
-            <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #00bcd4">文件管理系统</a>
+            <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #03a9f4">文件管理系统</a>
         </span>
         
     </div>
     <a href="/2023/07/10/2023-7-10-fastDFS%E9%9B%86%E7%BE%A4/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/06/27/fastCGI%E5%BA%94%E7%94%A8/">
+        <h2 class="post-title">fastCGI应用</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/6/27
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>用户浏览器发送http请求给nginx服务器，服务器fork 一个cgi进程处理传递的数据，CGI程序需要拿到用户名和密码进入数据库查询，查询结束返回结果给nginx服务器，nginx服务器返回http响应给用户浏览器。</p>
+<p>数据处理完，cgi程序就会被服务器杀死。</p>
+<h3 id="cgi程序的弊端"><a href="#cgi程序的弊端" class="headerlink" title="cgi程序的弊端"></a>cgi程序的弊端</h3><ul>
+<li>需要频繁创建和销毁进程</li>
+<li>web服务器效率低</li>
+</ul>
+<h3 id="改进使用fastCGI"><a href="#改进使用fastCGI" class="headerlink" title="改进使用fastCGI"></a>改进使用fastCGI</h3><p>fastCGI维护cgi程序，不用的时候阻塞。每个cgi程序有自己专门负责的任务：专门负责上传图片、专门负责下载图片等。</p>
+<p>可以跨平台。</p>
+<h3 id="fastCGI的弊端"><a href="#fastCGI的弊端" class="headerlink" title="fastCGI的弊端"></a>fastCGI的弊端</h3><p>nginx不能直接调用fastCGI，它与服务器分离。这时需要借助spawn-fcgi或者php-fpm来作为桥梁 协作连接调用。fastCGI是spawn-fcgi的子进程。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #00bcd4">fastDFS集群</a>
+        </span>
+        
+    </div>
+    <a href="/2023/06/27/fastCGI%E5%BA%94%E7%94%A8/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/06/26/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86/">
+        <h2 class="post-title">反向代理和正向代理</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/6/26
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h3 id="正向代理和反向代理的区别"><a href="#正向代理和反向代理的区别" class="headerlink" title="正向代理和反向代理的区别"></a>正向代理和反向代理的区别</h3><p>正向代理是为用户服务。反向代理是为web服务器服务的。</p>
+<h3 id="反向代理的作用"><a href="#反向代理的作用" class="headerlink" title="反向代理的作用"></a>反向代理的作用</h3><p>为后端服务器提供负载均衡。为后端服务器提供缓冲服务。</p>
+<h3 id="域名和ip的关系"><a href="#域名和ip的关系" class="headerlink" title="域名和ip的关系"></a>域名和ip的关系</h3><p>域名绑定ip，一个ip可以多个域名绑定，一个域名只能和一个ip绑定。 </p>
+<h3 id="反向代理的工作流程"><a href="#反向代理的工作流程" class="headerlink" title="反向代理的工作流程"></a>反向代理的工作流程</h3><ul>
+<li>通过浏览器访问server模块中的server_name对应的域名</li>
+<li>服务器找到location&#x2F;</li>
+<li>需要在里面设置代理：proxy_pass+url.url自己编</li>
+<li>通过url找到对应的upstream模块</li>
+<li>找到upstream模块中的ip，就是server的IP地址（负载均衡这个模块会有多个服务器，每个服务器访问的几率可以通过设置权重完成）</li>
+</ul>
+<h3 id="shell变量"><a href="#shell变量" class="headerlink" title="shell变量"></a>shell变量</h3><p>变量默认为字符串，赋值操作var&#x3D;10，等号左右不能有空格。查看：echo $var</p>
+<p>删除变量：unset 变量名</p>
+<ul>
+<li><p>将任务执行完成之后赋值给变量</p>
+<p>var&#x3D;<code>命令</code>&#x2F;var&#x3D;$(命令)——var&#x3D;<code>date</code>&#x2F;var&#x3D;$(date)</p>
+</li>
+<li><p>变量数值运算：$(($var+4))&#x2F;$[$var+4]</p>
+</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #00a596">fastDFS集群</a>
+        </span>
+        
+    </div>
+    <a href="/2023/06/26/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/06/13/post%E8%AF%B7%E6%B1%82/">
+        <h2 class="post-title">post请求</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/6/13
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h3 id="post请求类型"><a href="#post请求类型" class="headerlink" title="post请求类型"></a>post请求类型</h3><ul>
+<li>json</li>
+<li>application&#x2F;x-www-form-urlencoded</li>
+<li>xml</li>
+<li>multipart&#x2F;form-data(请求图片和文件)</li>
+</ul>
+<h3 id="读文件内容"><a href="#读文件内容" class="headerlink" title="读文件内容"></a>读文件内容</h3><p>第一个分隔符开始，第二个分隔符结束，用strstr  </p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #00a596">fastDFS集群</a>
+        </span>
+        
+    </div>
+    <a href="/2023/06/13/post%E8%AF%B7%E6%B1%82/" class="go-post">阅读全文</a>
 </div>
 
 

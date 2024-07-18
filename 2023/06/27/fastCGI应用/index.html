@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>软件测试 | Hexo</title>
+    <title>fastCGI应用 | Hexo</title>
     <meta name="author" content="John Doe" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -156,14 +156,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>软件测试</h1>
+        <h1>fastCGI应用</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/6/26
+            2023/6/27
         </span>
         
         
@@ -175,8 +175,8 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E6%B5%8B%E8%AF%95/" style="color: #00bcd4">
-                    测试
+                <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #ffa2c4">
+                    fastDFS集群
                 </a>
             </span>
             
@@ -185,93 +185,15 @@
     </div>
     
     <div class="content" v-pre>
-        <h3 id="软件质量模型"><a href="#软件质量模型" class="headerlink" title="软件质量模型"></a>软件质量模型</h3><ul>
-<li>**功能性 **  加粗的为重点<ul>
-<li>软件所具备的功能<span id="more"></span></li>
+        <p>用户浏览器发送http请求给nginx服务器，服务器fork 一个cgi进程处理传递的数据，CGI程序需要拿到用户名和密码进入数据库查询，查询结束返回结果给nginx服务器，nginx服务器返回http响应给用户浏览器。</p>
+<p>数据处理完，cgi程序就会被服务器杀死。</p>
+<h3 id="cgi程序的弊端"><a href="#cgi程序的弊端" class="headerlink" title="cgi程序的弊端"></a>cgi程序的弊端</h3><ul>
+<li>需要频繁创建和销毁进程</li>
+<li>web服务器效率低</li>
 </ul>
-</li>
-<li><strong>性能</strong><ul>
-<li>多用户使用。对时间，资源的需求能否满足，响应快</li>
-</ul>
-</li>
-<li><strong>兼容性</strong><ul>
-<li>在不同的平台上&#x2F;设备上能否正常使用。</li>
-</ul>
-</li>
-<li><strong>易用性</strong><ul>
-<li>上手难度，易学易用，用户粘性（用户对该系统的依赖度，信任度），用户体验好</li>
-</ul>
-</li>
-<li><strong>安全性</strong><ul>
-<li>数据传输安全，防范一些安全攻击</li>
-</ul>
-</li>
-<li>可靠性&#x2F;稳定性<ul>
-<li>长期运行稳定，不易出现异常</li>
-</ul>
-</li>
-<li>可移植性<ul>
-<li>方便应用升级，数据迁移方便</li>
-</ul>
-</li>
-<li>可维护性<ul>
-<li>运行过程中出现问题，维护操作的方便性</li>
-</ul>
-</li>
-</ul>
-<h3 id="等价类划分法"><a href="#等价类划分法" class="headerlink" title="等价类划分法"></a>等价类划分法</h3><ul>
-<li>有效等价类</li>
-<li>无效等价类</li>
-</ul>
-<h3 id="边界值分析法"><a href="#边界值分析法" class="headerlink" title="边界值分析法"></a>边界值分析法</h3><ul>
-<li>上点：边界上的点，必须（不考虑是否包含上点）</li>
-<li>离点：距离上点最近的点，选择两个点（不包含上点选择范围内的点，包含上点选择范围外的点）</li>
-<li>内点：边界范围内任意的点（建议中间点）</li>
-</ul>
-<h3 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h3><ul>
-<li>用例编号</li>
-<li>用例标题</li>
-<li>所属模块</li>
-<li>优先级</li>
-<li>前置条件</li>
-<li>测试步骤</li>
-<li>测试数据</li>
-<li>预期结果</li>
-</ul>
-<h3 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h3><ul>
-<li>少功能</li>
-<li>多功能</li>
-<li>功能错误</li>
-<li>隐性功能缺失、错误（删除时没有二次确认等）</li>
-<li>不宜使用，体验差。</li>
-</ul>
-<hr>
-<ul>
-<li>当前指派（给谁处理）</li>
-<li>bug描述</li>
-<li>严重程度</li>
-<li>修复优先级</li>
-<li>重现步骤</li>
-</ul>
-<h3 id="app测试"><a href="#app测试" class="headerlink" title="app测试"></a>app测试</h3><ul>
-<li>功能测试<ul>
-<li>业务，单模块测试</li>
-</ul>
-</li>
-<li>专项测试<ul>
-<li>安装、卸载、升级、兼容性、消息推送、用户体验</li>
-</ul>
-</li>
-<li>性能测试<ul>
-<li>内存，cpu，电量、流量、启动时间、流畅度、稳定性</li>
-</ul>
-</li>
-</ul>
-<h3 id="专项测试"><a href="#专项测试" class="headerlink" title="专项测试"></a>专项测试</h3><img src="https://oss-hl.oss-cn-chengdu.aliyuncs.com/img/image-20240627104908527.png" alt="image-20240627104908527" style="zoom:67%;" />
-
-<h3 id="APP性能测试"><a href="#APP性能测试" class="headerlink" title="APP性能测试"></a>APP性能测试</h3><img src="https://oss-hl.oss-cn-chengdu.aliyuncs.com/img/image-20240627144027662.png" alt="image-20240627144027662" style="zoom:67%;" />
-
-<h3 id="monkey测试"><a href="#monkey测试" class="headerlink" title="monkey测试"></a>monkey测试</h3><p>monkey就是猴子， monkey测试就像一只猴子在玩手机（乱抓、乱点）。在app中随意操作，发掘可能的异常。</p>
+<h3 id="改进使用fastCGI"><a href="#改进使用fastCGI" class="headerlink" title="改进使用fastCGI"></a>改进使用fastCGI</h3><p>fastCGI维护cgi程序，不用的时候阻塞。每个cgi程序有自己专门负责的任务：专门负责上传图片、专门负责下载图片等。</p>
+<p>可以跨平台。</p>
+<h3 id="fastCGI的弊端"><a href="#fastCGI的弊端" class="headerlink" title="fastCGI的弊端"></a>fastCGI的弊端</h3><p>nginx不能直接调用fastCGI，它与服务器分离。这时需要借助spawn-fcgi或者php-fpm来作为桥梁 协作连接调用。fastCGI是spawn-fcgi的子进程。</p>
 
     </div>
     

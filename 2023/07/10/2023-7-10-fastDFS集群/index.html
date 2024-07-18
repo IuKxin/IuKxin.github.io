@@ -208,7 +208,15 @@
 <p>将动态库的绝对路径存入ld.so.conf</p>
 </li>
 </ul>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+<h3 id="在存储节点上的nginx交叉编译fastCGI"><a href="#在存储节点上的nginx交叉编译fastCGI" class="headerlink" title="在存储节点上的nginx交叉编译fastCGI"></a>在存储节点上的nginx交叉编译fastCGI</h3><p>找不到头文件，查看makefile文件，发现编译的是另一个makefile文件中添加</p>
+<h3 id="存储节点启动nginx没有worker进程"><a href="#存储节点启动nginx没有worker进程" class="headerlink" title="存储节点启动nginx没有worker进程"></a>存储节点启动nginx没有worker进程</h3><p>查看日志文件告诉我们有个文件没找到，找到这个文件，将这个文件拷贝至fastDFS存储文件中。更改配置文件base_path路径等信息，改成和storege.conf文件中的一样。</p>
+<ul>
+<li><p>nofind http.conf</p>
+<p>将fast DFS中的http.conf拷贝至fast DFS文件夹中</p>
+<p>将niginx的mine.types文件拷贝至。。。。</p>
+</li>
+</ul>
+
     </div>
     
     
