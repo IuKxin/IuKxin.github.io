@@ -19,7 +19,7 @@
 
 
     <meta charset="utf-8" />
-    <title>Hexo</title>
+    <title>C++ | Hexo</title>
     <meta name="author" content="John Doe" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -58,7 +58,9 @@
 
 
 
-<script src="/js/lib/home.js"></script>
+
+
+
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -168,111 +170,11 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="home-head">
-    <div
-        id="home-background"
-        ref="homeBackground"
-        data-images="/images/background.jpg"
-    ></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>Hexo</h1>
-                <h3></h3>
-                <h5></h5>
-            </div>
-        </span>
+            <div class="article">
+    <div>
+        <h1>C++</h1>
     </div>
-</div>
-<div
-    id="home-posts-wrap"
-    ref="homePostsWrap"
-    true
->
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/2024/07/18/firs/">
-        <h2 class="post-title">firs</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/7/18
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2024/07/18/firs/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2024/06/26/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">
-        <h2 class="post-title">软件测试</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/6/26
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h3 id="软件质量模型"><a href="#软件质量模型" class="headerlink" title="软件质量模型"></a>软件质量模型</h3><ul>
-<li>**功能性 **  加粗的为重点<ul>
-<li>软件所具备的功能
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E6%B5%8B%E8%AF%95/" style="color: #ffa2c4">测试</a>
-        </span>
-        
-    </div>
-    <a href="/2024/06/26/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2024/05/10/C/">
-        <h2 class="post-title">C++</h2>
-    </a>
-    <div class="category-and-date">
-        
+    <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
@@ -282,10 +184,9 @@
         
         
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h1 id="C-C"><a href="#C-C" class="headerlink" title="C&#x2F;C++:"></a>C&#x2F;C++:</h1><h2 id="C-中的设计模式"><a href="#C-中的设计模式" class="headerlink" title="C++中的设计模式"></a>C++中的设计模式</h2><p>C++中的设计模式是指一些经过验证的、可重用的、解决特定问题的代码结构，可以提高代码的可读性、可维护性和可拓展性，设计模式又分为几种类型：</p>
+    
+    <div class="content" v-pre>
+        <h1 id="C-C"><a href="#C-C" class="headerlink" title="C&#x2F;C++:"></a>C&#x2F;C++:</h1><h2 id="C-中的设计模式"><a href="#C-中的设计模式" class="headerlink" title="C++中的设计模式"></a>C++中的设计模式</h2><p>C++中的设计模式是指一些经过验证的、可重用的、解决特定问题的代码结构，可以提高代码的可读性、可维护性和可拓展性，设计模式又分为几种类型：</p>
 <p>创建型：例如单例模式和工厂模式，单例模式是一个类只创建一个对象，也就是一次创建多次使用</p>
 <p>结构型：桥接模式(为了应对客户的需求变化而导致的类的抽象层次不断增加)，适配器模式</p>
 <p>行为型：模板模式、观察者模式(这个设计模式就是当一个对象的状态发生变化时，所有依赖于它的对象都能得到通知并自动更新)</p>
@@ -599,347 +500,13 @@ public:
 <p>快排</p>
 <p>public static void quickSort(int nums[], int start, int end) {<br>    &#x2F;&#x2F;数组有多个元素进行排序<br>    if (start &lt; end) {<br>        int base &#x3D; nums[start];&#x2F;&#x2F;以要进行排序数组第0个元素为base<br>        int left &#x3D; start;&#x2F;&#x2F;左指针<br>        int right &#x3D; end;&#x2F;&#x2F;右指针<br>        while (left &lt; right) {<br>            &#x2F;&#x2F;从右向左找，比base大，right–<br>            while (left&lt; right &amp;&amp; nums[right] &gt;&#x3D; base) {<br>                right–;<br>            }<br>            &#x2F;&#x2F;比base小，替换left所在位置的数字<br>            nums[left] &#x3D; nums[right];<br>            &#x2F;&#x2F;从左向右找，比base小，left++<br>            while (left &lt; right &amp;&amp; nums[left] &lt;&#x3D; base){<br>                left++;<br>            }<br>            &#x2F;&#x2F;比base大，替换right所在位置的数字<br>            nums[right] &#x3D; nums[left];<br>        }<br>        nums[left] &#x3D; base;&#x2F;&#x2F;此时left&#x3D;right，用base替换这个位置的数字<br>        &#x2F;&#x2F;排列比base小的数字的数组<br>        quickSort(nums, start, left - 1);<br>        &#x2F;&#x2F;排列比base大的数字的数组<br>        quickSort(nums, left + 1, end);<br>    }<br>}</p>
 
-            
-        </div>
     </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2024/05/10/C/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/10/20/2023-10-20-%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86-%E7%9F%A5%E8%AF%86%E5%82%A8%E5%A4%87%E7%AF%87/">
-        <h2 class="post-title">日志管理-知识储备篇</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/20
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h3 id="枚举宏定义"><a href="#枚举宏定义" class="headerlink" title="枚举宏定义"></a>枚举宏定义</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Fruit</span> &#123;</span><br><span class="line">	UNKNOW = <span class="number">0</span>,		<span class="comment">//未知</span></span><br><span class="line">	CHERRIES = <span class="number">1</span>,	<span class="comment">//车厘子</span></span><br><span class="line">	STRABERRY = <span class="number">2</span>,	<span class="comment">//草莓</span></span><br><span class="line">	APPLE = <span class="number">3</span>,		<span class="comment">//苹果</span></span><br><span class="line">	WATERMELON = <span class="number">4</span>	<span class="comment">//西瓜</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//这个方法名称我喜欢使用2来替换to fruit2string==fruitToString </span></span><br><span class="line"><span class="function"><span class="type">const</span> <span class="type">char</span>* <span class="title">fruit2string</span><span class="params">(Fruit fruit)</span></span>&#123;</span><br><span class="line">	<span class="keyword">switch</span>(fruit)&#123;</span><br><span class="line">		<span class="keyword">case</span> fruit::CHERRIES:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&quot;CHERRIES&quot;</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> fruit::STRABERRY:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&quot;STRABERRY&quot;</span>;</span><br><span class="line">			<span class="keyword">break</span>; </span><br><span class="line">		<span class="keyword">case</span> fruit::APPLE:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&quot;APPLE&quot;</span>;</span><br><span class="line">			<span class="keyword">break</span>; </span><br><span class="line">		<span class="keyword">case</span> fruit::WATERMELON:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&quot;WATERMELON&quot;</span>;</span><br><span class="line">			<span class="keyword">break</span>; </span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&quot;UNKNOW&quot;</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;UNKNOW&quot;</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="va-list-va-start-va-end-va-arg四个宏"><a href="#va-list-va-start-va-end-va-arg四个宏" class="headerlink" title="va_list\va_start\va_end\va_arg四个宏"></a>va_list\va_start\va_end\va_arg四个宏</h3><p>用于c语言使用不定长参数。</p>
-<figure class="highlight plaintext"><figcaption><span>func(int a,...)```三个省略号，表示参数a后跟着不定长参数。var_list是一个指针类型变量。这个指针指向不定参的起始位置。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">va_start(va_list a,last_arg)将指针指向不定长参数列表省略号前的位置。</span><br><span class="line"></span><br><span class="line">va_arg(va_list a, type)获取参数列表的下一个参数。以type返回。</span><br><span class="line"></span><br><span class="line">va_end()收回va_list指针。释放资源。</span><br><span class="line"></span><br><span class="line">- vasprintf使用，可以通过可变参数创建一个格式化字符串，并存在动态内存中。不会打印，只会存在一个字符数组的指针中。</span><br><span class="line"></span><br><span class="line">```c++</span><br><span class="line">#include &lt;stdarg.h&gt;</span><br><span class="line"></span><br><span class="line">std::string format(const char* fmt,...)&#123;</span><br><span class="line">	std::stringstream ss;</span><br><span class="line">	va_list args;</span><br><span class="line">	va_start(args,fmt);</span><br><span class="line">	char* buf = nullptr;</span><br><span class="line">	int len = vasprintf(&amp;buf,fmt,args);</span><br><span class="line">	if(len != -1)&#123;</span><br><span class="line">		ss&lt;&lt;std::string(buf,len);//把数据存在buf中</span><br><span class="line">		free(buf);</span><br><span class="line">	&#125;</span><br><span class="line">	va_end(args);</span><br><span class="line">	return ss.str();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="析构时机"><a href="#析构时机" class="headerlink" title="析构时机"></a>析构时机</h3><p>匿名对象：执行完立即析构</p>
-<p>具名对象(栈内)：超出作用域后析构<br>具名对象(堆内)：手动释放后析构</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//日志对象</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Logger</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//构造</span></span><br><span class="line">	<span class="built_in">Logger</span>();	</span><br><span class="line">	<span class="comment">//析构</span></span><br><span class="line">	~<span class="built_in">Logger</span>();	</span><br><span class="line">	<span class="function">std::stringstream&amp; <span class="title">getSS</span><span class="params">()</span> </span>&#123; 		<span class="keyword">return</span> m_ss; </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	std::stringstream m_ss;</span><br><span class="line">&#125;;</span><br><span class="line">Logger::<span class="built_in">Logger</span>()&#123;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Logger()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line">Logger::~<span class="built_in">Logger</span>()&#123;</span><br><span class="line">	std::cout &lt;&lt; m_ss.<span class="built_in">str</span>() &lt;&lt; std::endl;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;~Logger()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Logger</span>().<span class="built_in">getSS</span>() &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; <span class="string">&quot;sylar&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%96%E5%86%99c/" style="color: #00a596">高性能编写c++</a>
-        </span>
-        
-    </div>
-    <a href="/2023/10/20/2023-10-20-%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86-%E7%9F%A5%E8%AF%86%E5%82%A8%E5%A4%87%E7%AF%87/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/07/10/2023-7-10-fastDFS%E9%9B%86%E7%BE%A4/">
-        <h2 class="post-title">fastDFS集群</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/7/10
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h1 id="fastDFS集群"><a href="#fastDFS集群" class="headerlink" title="fastDFS集群"></a>fastDFS集群</h1><p>追踪器之间是轮询访问，因此不会出现单点故障。同组存储节点之间相互备份，纵向扩容就是增加备份的数目，横向扩容可以增加磁盘容量，也就是增加组。存储节点和追踪器可以在一台主机的多台虚拟机部署。</p>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #00a596">文件管理系统</a>
-        </span>
-        
-    </div>
-    <a href="/2023/07/10/2023-7-10-fastDFS%E9%9B%86%E7%BE%A4/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/06/27/fastCGI%E5%BA%94%E7%94%A8/">
-        <h2 class="post-title">fastCGI应用</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/6/27
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>用户浏览器发送http请求给nginx服务器，服务器fork 一个cgi进程处理传递的数据，CGI程序需要拿到用户名和密码进入数据库查询，查询结束返回结果给nginx服务器，nginx服务器返回http响应给用户浏览器。</p>
-<p>数据处理完，cgi程序就会被服务器杀死。</p>
-<h3 id="cgi程序的弊端"><a href="#cgi程序的弊端" class="headerlink" title="cgi程序的弊端"></a>cgi程序的弊端</h3><ul>
-<li>需要频繁创建和销毁进程</li>
-<li>web服务器效率低</li>
-</ul>
-<h3 id="改进使用fastCGI"><a href="#改进使用fastCGI" class="headerlink" title="改进使用fastCGI"></a>改进使用fastCGI</h3><p>fastCGI维护cgi程序，不用的时候阻塞。每个cgi程序有自己专门负责的任务：专门负责上传图片、专门负责下载图片等。</p>
-<p>可以跨平台。</p>
-<h3 id="fastCGI的弊端"><a href="#fastCGI的弊端" class="headerlink" title="fastCGI的弊端"></a>fastCGI的弊端</h3><p>nginx不能直接调用fastCGI，它与服务器分离。这时需要借助spawn-fcgi或者php-fpm来作为桥梁 协作连接调用。fastCGI是spawn-fcgi的子进程。</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #00a596">fastDFS集群</a>
-        </span>
-        
-    </div>
-    <a href="/2023/06/27/fastCGI%E5%BA%94%E7%94%A8/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/06/26/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86/">
-        <h2 class="post-title">反向代理和正向代理</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/6/26
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h3 id="正向代理和反向代理的区别"><a href="#正向代理和反向代理的区别" class="headerlink" title="正向代理和反向代理的区别"></a>正向代理和反向代理的区别</h3><p>正向代理是为用户服务。反向代理是为web服务器服务的。</p>
-<h3 id="反向代理的作用"><a href="#反向代理的作用" class="headerlink" title="反向代理的作用"></a>反向代理的作用</h3><p>为后端服务器提供负载均衡。为后端服务器提供缓冲服务。</p>
-<h3 id="域名和ip的关系"><a href="#域名和ip的关系" class="headerlink" title="域名和ip的关系"></a>域名和ip的关系</h3><p>域名绑定ip，一个ip可以多个域名绑定，一个域名只能和一个ip绑定。 </p>
-<h3 id="反向代理的工作流程"><a href="#反向代理的工作流程" class="headerlink" title="反向代理的工作流程"></a>反向代理的工作流程</h3><ul>
-<li>通过浏览器访问server模块中的server_name对应的域名</li>
-<li>服务器找到location&#x2F;</li>
-<li>需要在里面设置代理：proxy_pass+url.url自己编</li>
-<li>通过url找到对应的upstream模块</li>
-<li>找到upstream模块中的ip，就是server的IP地址（负载均衡这个模块会有多个服务器，每个服务器访问的几率可以通过设置权重完成）</li>
-</ul>
-<h3 id="shell变量"><a href="#shell变量" class="headerlink" title="shell变量"></a>shell变量</h3><p>变量默认为字符串，赋值操作var&#x3D;10，等号左右不能有空格。查看：echo $var</p>
-<p>删除变量：unset 变量名</p>
-<ul>
-<li><p>将任务执行完成之后赋值给变量</p>
-<p>var&#x3D;<code>命令</code>&#x2F;var&#x3D;$(命令)——var&#x3D;<code>date</code>&#x2F;var&#x3D;$(date)</p>
-</li>
-<li><p>变量数值运算：$(($var+4))&#x2F;$[$var+4]</p>
-</li>
-</ul>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #03a9f4">fastDFS集群</a>
-        </span>
-        
-    </div>
-    <a href="/2023/06/26/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/06/13/post%E8%AF%B7%E6%B1%82/">
-        <h2 class="post-title">post请求</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/6/13
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h3 id="post请求类型"><a href="#post请求类型" class="headerlink" title="post请求类型"></a>post请求类型</h3><ul>
-<li>json</li>
-<li>application&#x2F;x-www-form-urlencoded</li>
-<li>xml</li>
-<li>multipart&#x2F;form-data(请求图片和文件)</li>
-</ul>
-<h3 id="读文件内容"><a href="#读文件内容" class="headerlink" title="读文件内容"></a>读文件内容</h3><p>第一个分隔符开始，第二个分隔符结束，用strstr  </p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #ff7d73">fastDFS集群</a>
-        </span>
-        
-    </div>
-    <a href="/2023/06/13/post%E8%AF%B7%E6%B1%82/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/04/20/2023-4-20-static%E4%BD%BF%E7%94%A8/">
-        <h2 class="post-title">static使用</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/4/20
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><p>static修饰的变量放在进程的全局数据区中，当函数返回这个变量的值还是存在且不变。</p>
-<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><p>静态全局变量只对当前文件可见，其它文件有同名变量无影响。非静态变量可以在其它文件使用，甚至不用extern关键字。</p>
-<h3 id="类内静态数据成员"><a href="#类内静态数据成员" class="headerlink" title="类内静态数据成员"></a>类内静态数据成员</h3><p>不能再类声明时定义静态成员变量</p>
-<p>无论有多少个类对象，静态数据成员只有一个拷贝，对该类所有对象可见。</p>
-<p>初始化方式：int A::data&#x3D;10;</p>
-<p>访问方式：a.data&#x2F;A::data</p>
-<h3 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h3><p>没有this指针，属于类</p>
-<p>类体外的函数不能指定为static</p>
-<p>非静态成员函数可以任意访问静态成员函数和静态成员数据</p>
-<p>静态成员函数不能使用非静态成员</p>
-<h3 id="static修饰类"><a href="#static修饰类" class="headerlink" title="static修饰类"></a>static修饰类</h3><p>static只能修饰一个内部类，也就是匿名内部类。</p>
-<h3 id="嵌套类"><a href="#嵌套类" class="headerlink" title="嵌套类"></a>嵌套类</h3><p>在类的私有部分：只有嵌套类的外部类知道它的存在</p>
-<p>在类的保护部分：对于派生类是可见的，可以直接在派生类中创建这种类型的对象</p>
-<p>在类的公有部分：派生类和外部世界也可以使用。使用方法：OUTclass::NastedClass nastedclass</p>
-<p><strong>内部类没有外部类的指针，所以不能访问外部类的非静态成员</strong>。嵌套类只是语法上的嵌套，其实嵌套类不是外围类中对象的成员。</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/c/" style="color: #ff7d73">c++</a>
-        </span>
-        
-    </div>
-    <a href="/2023/04/20/2023-4-20-static%E4%BD%BF%E7%94%A8/" class="go-post">阅读全文</a>
-</div>
-
-
-        <div class="page-current">
     
-    <span class="current">1</span>
     
     
     
     
-</div>
-
-    </div>
     
-    <div id="home-card">
-        <div id="card-style">
-    <div id="card-div">
-        <div class="avatar">
-            <img src="/images/me.jpg" alt="avatar" />
-        </div>
-        <div class="name">John Doe</div>
-        <div class="description">
-            <p>Description<br>…</p>
-
-        </div>
-        
-        
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://argvchs.github.io">Argvchs</a>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-
-    </div>
     
 </div>
 
@@ -971,6 +538,12 @@ public:
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
