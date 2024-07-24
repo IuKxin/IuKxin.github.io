@@ -260,7 +260,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E6%B5%8B%E8%AF%95/" style="color: #ffa2c4">测试</a>
+            <a href="/tags/%E6%B5%8B%E8%AF%95/" style="color: #03a9f4">测试</a>
         </span>
         
     </div>
@@ -690,7 +690,7 @@ public:
         
         <span class="tag">
             
-            <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #00a596">文件管理系统</a>
+            <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #ffa2c4">文件管理系统</a>
         </span>
         
     </div>
@@ -738,7 +738,7 @@ public:
         
         <span class="tag">
             
-            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #00a596">fastDFS集群</a>
+            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #ffa2c4">fastDFS集群</a>
         </span>
         
     </div>
@@ -796,7 +796,7 @@ public:
         
         <span class="tag">
             
-            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #03a9f4">fastDFS集群</a>
+            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #00bcd4">fastDFS集群</a>
         </span>
         
     </div>
@@ -847,6 +847,98 @@ public:
         
     </div>
     <a href="/2023/06/13/post%E8%AF%B7%E6%B1%82/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/04/21/%E8%BF%9B%E7%A8%8B/">
+        <h2 class="post-title">进程</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/4/21
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h3 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h3><p>使用fork，一个进程就是进程控制块，没创建一个进程最简单的方式就是复制。内核代码和数据都是一样的，有共享的程序运行空间，因此子进程和父进程有些数据是共享的。</p>
+<p>父子进程的时间片：当创建出子进程时，父进程将剩下的时间片一分为二给父子进程分。</p>
+<h3 id="子进程成为真正的进程"><a href="#子进程成为真正的进程" class="headerlink" title="子进程成为真正的进程"></a>子进程成为真正的进程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">execv</span>(可执行文件路径，参数)</span><br></pre></td></tr></table></figure>
+
+<p>系统调用execv()就是子进程执行一个新程序的方法之一。子进程调用execv之后，系统会立即为子进程加载可执行文件分配私有程序内存空间，从此子进程也成为一个真正的进程。使子进程能够有自己的用户堆栈和数据区。</p>
+<h3 id="进程地址空间划分"><a href="#进程地址空间划分" class="headerlink" title="进程地址空间划分"></a>进程地址空间划分</h3><ol>
+<li><p>文本段：也称为代码段，用于存储程序的机器代码指令，通常是可读的。</p>
+</li>
+<li><p>数据段：包括初始化的全局变量和静态变量，以及显式初始化的局部静态变量。</p>
+</li>
+<li><p>BSS段：包括未初始化的全局变量和静态变量，在程序启动时会被初始化为0；</p>
+</li>
+<li><p>堆：用于动态分配内存，即运行时动态分配的内存空间。在堆上的内存需要由程序员显示申请和释放，通常使用malloc()、calloc()、realloc()等函数进行分配，使用free()函数进行释放。</p>
+</li>
+<li><p>栈：用于存储函数的局部变量、函数参数、函数调用的返回地址等信息。先进先出，函数调用会分配栈帧，返回时会释放栈帧。</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/a343bd81c75c0d70f56b25ff3fd96243.png" alt="img"></p>
+</li>
+</ol>
+<h3 id="wait（）"><a href="#wait（）" class="headerlink" title="wait（）"></a>wait（）</h3><p>父进程等待子进程结束释放子进程的资源。子进程退出，没有用wait释放资源将会导致进程号被僵尸进程占用浪费。</p>
+<h3 id="exit"><a href="#exit" class="headerlink" title="exit()"></a>exit()</h3><p>子进程调用exit会立即退出，使进程成为一个僵尸进程。进程调用_exit()后不会清理i&#x2F;o缓存，直接通过系统调用，终止运行，而exit()会清理缓存，将缓冲区的数据写入文件。</p>
+<h3 id="I-O缓存"><a href="#I-O缓存" class="headerlink" title="I&#x2F;O缓存"></a>I&#x2F;O缓存</h3><p>printf、fopen、fread、fwrite都在内。特征是没打开一个文件都存在一个缓冲区中，防止频繁访问磁盘。</p>
+<ol>
+<li>刷新缓存：手动刷新使用fflush(),遇见\n、EOF自动刷新缓存，将数据从缓存区写入文件。</li>
+<li>当缓冲区满了之后，缓冲区的内容会写入文件。</li>
+</ol>
+<h3 id="vfork系统调用"><a href="#vfork系统调用" class="headerlink" title="vfork系统调用"></a>vfork系统调用</h3><p>vfork()与fork不同，不是把父进程复制到子进程，而是用赋值指针的方法使父子进程的资源实现共享。父子进程共享同一块内存空间，因此这实际上是创建一个线程。</p>
+<h4 id="fork-和vfork-的区别"><a href="#fork-和vfork-的区别" class="headerlink" title="fork()和vfork()的区别"></a>fork()和vfork()的区别</h4><p>fork()父子进程复制数据段和代码段。vfork()父子进程共享数据段。</p>
+<p>fork()父子进程的执行顺序不确定。vfork()可以保证子进程先运行，在调用execv()或exit()之前，与父进程数据共享，在调用execv()或exit()之后父进程才能被调度运行。因此，<strong>如果子进程调用这两个函数之前依赖父进程的进一步动作，就会死锁</strong>。</p>
+<h3 id="kernel-thread"><a href="#kernel-thread" class="headerlink" title="kernel_thread()"></a>kernel_thread()</h3><p>这个函数是linux用来单独创建内核线程的函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">kernel_thread</span><span class="params">(<span class="type">int</span> (*fn)(<span class="type">void</span>*),<span class="type">void</span>* arg,<span class="type">unsigned</span> <span class="type">long</span> flags)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>fn指向线程代码，arg为线程所需的入口参数。</p>
+<h3 id="进程0"><a href="#进程0" class="headerlink" title="进程0"></a>进程0</h3><p>计算机启动之后，linux在内核加载之后，通过初始化函数start_kerenl()创建一个内核线程，我们将这个线程称为进程0。当系统没有其它可运行进程时，调度器才会选择进程0来运行。</p>
+<h3 id="进程1"><a href="#进程1" class="headerlink" title="进程1"></a>进程1</h3><p>进程1就是init进程，它是内核初始化时创建的第2个内核线程。调用execv()之后，进程变成用户进程的根进程。该进程的函数会创建kswapd()等4个与内存管理有关的内核线程。</p>
+<h3 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h3><p>守护进程不受端控制并在后台运行的进程。它们会做一些经常性的注入定期进行页交换之类的例行工作。</p>
+<p><strong>守护进程启动</strong></p>
+<ol>
+<li>在系统启动脚本运行，启动脚本一般放在&#x2F;etc&#x2F;tc.d目录下</li>
+<li>利用超级服务器启动，大部分网络服务器都是这样启动，如ftp、telnet等</li>
+<li>由cron定时启动以及在终端用nohup启动的进程也叫守护进程。</li>
+</ol>
+<h3 id="孤儿进程"><a href="#孤儿进程" class="headerlink" title="孤儿进程"></a>孤儿进程</h3><p>父进程先于子进程终止，子进程的父亲变成进程init（进程1），由进程1来回收它们的资源。</p>
+<h3 id="僵尸进程"><a href="#僵尸进程" class="headerlink" title="僵尸进程"></a>僵尸进程</h3><p>子进程已经终止，但是父进程还未读取它的退出状态，这种子进程会形成僵尸进程。</p>
+<p>当一个子进程结束时，操作系统会发一个信号**(SIGCHLD)<strong>给父进程，通知它子进程已经终止。父进程需要使用wait()或者waitpid()系统调用来读取子进程的退出状态。</strong>wait和waitpid**的区别：wait会阻塞父进程，直到等待到任意一个子进程退出，并返回子进程的pid。waitpid等待指定pid的子进程退出，并且它的行为不会被其它子进程所阻塞。如果pid设置为-1，就代表等待的是所有子进程，退化为waitpid。</p>
+<h3 id="system函数"><a href="#system函数" class="headerlink" title="system函数"></a>system函数</h3><p>可以执行程序中的shell命令。提供了调用操作系统的命令解释器。</p>
+<pre><code class="c++">#include &quot;stdlib.h&quot;
+
+int main()
+&#123;
+    system(&quot;ls -al&quot;);
+    return 0;
+&#125;
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/linux/" style="color: #00bcd4">linux</a>
+        </span>
+        
+    </div>
+    <a href="/2023/04/21/%E8%BF%9B%E7%A8%8B/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
