@@ -191,7 +191,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/linux/" style="color: #ffa2c4">
+                <a href="/tags/linux/" style="color: #ff7d73">
                     linux
                 </a>
             </span>
@@ -203,6 +203,8 @@
     <div class="content" v-pre>
         <h3 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h3><p>使用fork，一个进程就是进程控制块，没创建一个进程最简单的方式就是复制。内核代码和数据都是一样的，有共享的程序运行空间，因此子进程和父进程有些数据是共享的。</p>
 <p>父子进程的时间片：当创建出子进程时，父进程将剩下的时间片一分为二给父子进程分。</p>
+<span id="more"></span>
+
 <h3 id="子进程成为真正的进程"><a href="#子进程成为真正的进程" class="headerlink" title="子进程成为真正的进程"></a>子进程成为真正的进程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">execv</span>(可执行文件路径，参数)</span><br></pre></td></tr></table></figure>
 
 <p>系统调用execv()就是子进程执行一个新程序的方法之一。子进程调用execv之后，系统会立即为子进程加载可执行文件分配私有程序内存空间，从此子进程也成为一个真正的进程。使子进程能够有自己的用户堆栈和数据区。</p>

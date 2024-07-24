@@ -260,7 +260,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E6%B5%8B%E8%AF%95/" style="color: #03a9f4">测试</a>
+            <a href="/tags/%E6%B5%8B%E8%AF%95/" style="color: #ff7d73">测试</a>
         </span>
         
     </div>
@@ -289,316 +289,6 @@
 <p>创建型：例如单例模式和工厂模式，单例模式是一个类只创建一个对象，也就是一次创建多次使用</p>
 <p>结构型：桥接模式(为了应对客户的需求变化而导致的类的抽象层次不断增加)，适配器模式</p>
 <p>行为型：模板模式、观察者模式(这个设计模式就是当一个对象的状态发生变化时，所有依赖于它的对象都能得到通知并自动更新)</p>
-<h2 id="C-有什么关键字"><a href="#C-有什么关键字" class="headerlink" title="C++有什么关键字"></a>C++有什么关键字</h2><p>​	 <strong>static：</strong><br>     static修饰符可用于修饰全局变量、局部变量或函数，三种场景下的作用分别为：</p>
-<ol>
-<li><p>修饰全局变量时：被修饰的变量称为静态全局变量。该全局变量仅在当前文件内可见(相当于限制了全局变量的可见范围，全局变量所有文件都可见)。</p>
-</li>
-<li><p>修饰局部变量时：被修饰的变量称为静态局部变量。变量仅初始化一次，而且由于变量是存储在数据段，而非堆或栈上，因此局部变量在离开作用域后不会被销毁，变量值始终有效直至程序结束。</p>
-</li>
-<li><p>修饰函数时：被修饰的函数称为静态函数。该函数仅在当前文件内可见。<br>   可以在头文件中定义static变量，但是包含该头文件的源文件会有命名相同但实际不同的static变量，被修饰成静态成员函数后，只能访问呢静态成员函数和静态成员变量，其他的普通成员变量不能进行访问</p>
-<p>   <strong>volatile：</strong><br>    当有变量使用volatile关键字声明变量值的时候，那么系统就会从他的内存所在地来读取数据，而不是从寄存器访问，也就是说对声明的变量来说，不再进行优化了，防止编译器优化导致变量值的读写异常<br>   ​	<strong>什么情况下必须使用volatile关键字？</strong></p>
-<ul>
-<li>当多个线程都会用到某一变量，并且该变量的值有可能发生改变时，需要用 volatile 关键字对该变量进行修饰；</li>
-<li>中断服务程序中访问的变量或并行设备的硬件寄存器的变量，最好用 volatile 关键字修饰。</li>
-</ul>
-<pre><code>**extern：**
-    当extern声明在变量或者函数之前时，表示这个变量或者函数是在其他文件中声明或者定义的，在这里拿来使用，也就不在这里分配空间
-    extern&quot;C&quot;:因为在c++中，函数是可以重载的，但是对于c来说，不存在重载这个说法，对于声明了extern的函数来说，表示这个函数使用c的方式编译
-              另外使用extern&quot;C&quot;也可以使用c语言库里的函数(包括使用extern&quot;C&quot;包括c语言头文件)
-**malloc/free和new/delete：**
-    共同点：都是从堆上分配空间，并且需要用户手动释放
-    区别：malloc和free是函数，而new/delete是操作符，并且前者在申请空间时不会初始化，并且需要手动计算空间大小并传递，而后者在申请空间时可以进行初始化，并且不用计算空间大小，后面跟上空间的类型就行，malloc需要进行类型强转。
-**union和struct：**
-    union和struct最大的区别在于内存的利用
-    struct结构体中各个成员拥有自己的内存，各自使用互不干涉
-    union各成员共用一块内存，并且同一时间只有一个成员能够得到这块内存的使用权，
-</code></pre>
-<p>   <strong>override:</strong></p>
-<p>   如果派生类在虚函数声明时使用了override描述符，那么该函数必须重载其基类中的同名函数，否则代码将无法通过编译，并且虚函数的声明必须与基类中的同名函数的参数类型和名称都相同才能进行覆盖</p>
-</li>
-</ol>
-<h2 id="new和delete可以重载吗"><a href="#new和delete可以重载吗" class="headerlink" title="new和delete可以重载吗"></a>new和delete可以重载吗</h2><p>new和delete可以进行重载</p>
-<h2 id="C-从代码到可执行程序之间经历了什么"><a href="#C-从代码到可执行程序之间经历了什么" class="headerlink" title="C++从代码到可执行程序之间经历了什么"></a>C++从代码到可执行程序之间经历了什么</h2><p>（1）预编译<br>主要处理源代码文件中的以“#”开头的预编译指令，例如展开宏定义，处理预编译指令<br>（2）编译<br>把预编译之后生成的xxx.i或xxx.ii文件，进行一系列词法分析、语法分析、语义分析及优化后，生成相应的汇编代码文件，生成汇编文件 xxx.s。<br>（3）汇编<br>将汇编代码转变成机器可以执行的指令，生成目标文件xxx.o(Linux下)、xxx.obj(Window下)<br>（4）链接<br>将目标文件进行链接，从而形成一个可以执行的程序。链接分为静态链接和动态链接。</p>
-<h2 id="C语言有哪些存储类型："><a href="#C语言有哪些存储类型：" class="headerlink" title="C语言有哪些存储类型："></a>C语言有哪些存储类型：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto(自动)，extern(外部)，register(寄存器)，static(静态)</span><br></pre></td></tr></table></figure>
-
-<h2 id="C-四种强制类型转换介绍"><a href="#C-四种强制类型转换介绍" class="headerlink" title="C++四种强制类型转换介绍"></a>C++四种强制类型转换介绍</h2><p>隐式类型转换是编译器自动隐式进行的，需要在代码中体现，而显示类型转换由程序员明确指定，C++也支持C风格的强制转换，也就是用括号进行强制转换，但是C风格的强制转换可能带来一些隐患，让一些问题难以发现。</p>
-<p>所以C++提供了一组适用于不同场景的强制转换的函数：</p>
-<ul>
-<li>static_cast：基本类型转换，低风险；</li>
-<li>dynamic_cast：类层次间的上行转换或下行转换，下行转换有类型检查功能，低风险；</li>
-<li>const_cast：去 const 属性，低风险；</li>
-<li>reinterpret_cast：转换不相关的类型，高风险。</li>
-</ul>
-<h2 id="如何确保函数在主函数之前先运行"><a href="#如何确保函数在主函数之前先运行" class="headerlink" title="如何确保函数在主函数之前先运行"></a>如何确保函数在主函数之前先运行</h2><p>全局变量和静态对象的初始化或者构造函数会先于主函数运行，可以在主函数之前声明实现一个函数，并在后面紧跟着定义一个全局变量或者静态对象用这个函数来进行初始化</p>
-<h2 id="map与set的区别和底层实现："><a href="#map与set的区别和底层实现：" class="headerlink" title="map与set的区别和底层实现："></a>map与set的区别和底层实现：</h2><p>​	1、底层实现都是红黑树，而unordered_map底层是hash表实现的</p>
-<p>​	2、map是键值对，关键字起到索引作用，值表示与索引相关联的数据，set是关键字的集合并且每个元素只包含一个关键字。</p>
-<p>​	3、set迭代器是const不能修改元素值，map允许修改value不能修改key</p>
-<p>​	4、map支持下标操作，set不支持。</p>
-<h2 id="map和unordered-map的查询速度谁快-同样也适用于set"><a href="#map和unordered-map的查询速度谁快-同样也适用于set" class="headerlink" title="map和unordered_map的查询速度谁快(同样也适用于set)"></a>map和unordered_map的查询速度谁快(同样也适用于set)</h2><p>首先要从底部开始说起，map的底层结构是红黑树而unordered_map的底层结构是哈希表，哈希表的查询时间复杂度是常数级别，也就是O(1)，存在哈希冲突时，变为O(n)，而红黑树的时间复杂度是指数级别O(logn)，所以一般来说是哈希表快</p>
-<h2 id="哈希冲突"><a href="#哈希冲突" class="headerlink" title="哈希冲突?"></a>哈希冲突?</h2><p>哈希冲突就是指由哈希函数计算出来的哈希值可能相同,导致了冲突,一般解决的方法有两种:开放寻址法和链表法</p>
-<p>开放寻址法::就是一旦发生了冲突,就去寻找下一个空的哈希地址</p>
-<p>链表法:将每个哈希表的结点当作一个链表的头部,发生冲突之后就在这个链表后面接着连接</p>
-<h2 id="红黑树的五大特性："><a href="#红黑树的五大特性：" class="headerlink" title="红黑树的五大特性："></a>红黑树的五大特性：</h2><p>1.每个节点都是红色或者是黑色的</p>
-<p>2.根节点是黑色的</p>
-<p>3.每个叶子节点都是黑的（注意：红黑树的叶子节点是NIL节点，值为空，但有颜色）</p>
-<p>4.如果一个节点是红色，则这个节点的两个子节点都是黑色</p>
-<p>5.对于每一个节点，从该节点到其子孙的叶子节点的所有路径上包含相同数目的黑节点</p>
-<h2 id="vector和list的区别是什么-数组和链表"><a href="#vector和list的区别是什么-数组和链表" class="headerlink" title="vector和list的区别是什么(数组和链表)"></a>vector和list的区别是什么(数组和链表)</h2><p>1、vector为数组实现，list为双向链表</p>
-<p>2、vector支持随机访问，list不行</p>
-<p>3、vector顺序储存，list随机存储</p>
-<p>4、vector一次性分配内存，不够才二倍扩容，list一个个分配内存</p>
-<p>5、vector随机访问性能好，插入删除比较慢(因为数组每次插入和删除都要讲后面的所有数据后移或者前进一位)，list插入删除快，但是不支持随机访问</p>
-<h2 id="C-容器的底层实现"><a href="#C-容器的底层实现" class="headerlink" title="C++容器的底层实现"></a>C++容器的底层实现</h2><p>vector：底层实现是利用数组实现的，当现有空间无法满足增长需求时，会重新分配（reallocate）一个更大的 array 并把所有元素移动过去(一般是将内存变为原来的二倍)，因此，vector 的 reallocate 是一个很耗时的处理(一般涉及到重新分配空间、元素移动、释放原空间)。所以，每次 reallocate 时都会预留多余的空间。vector保证存储空间是连续的</p>
-<p>deque：双端队列底层容器是双向链表，因此deque的存储空间不是连续的，不能使用++–，他一般是分段连续的，双端队列在分配空间时，只需释放两端的存储块，不需要移动已有数据，但是deque不适合遍历</p>
-<p>list：底层是双向链表，支持在任何位置快速插入和删除元素，并支持双向遍历，但主要缺点在于不支持元素的随机访问</p>
-<p>stack、queue：对于queue和stack来说，一般使用deque来作为底层容器</p>
-<p>map、set、multimap、multiset：使用红黑树作为底层容器，自动进行排序</p>
-<p>unordered_map、unordered_set：底层容器都是哈希表，这两种容器都是不能进行排序的，但是直接访问元素的速度更快</p>
-<h2 id="指针和引用的区别"><a href="#指针和引用的区别" class="headerlink" title="指针和引用的区别"></a>指针和引用的区别</h2><p>指针可以为空指针，而引用必须进行初始化；<br>指针可以改变指向，而引用在初始化之后就不能改变；<br>指针时一个变量，存储的是地址，引用只是一个别名</p>
-<p>什么时候使用指针，或者使用引用？<br>一般使用引用是为了避免对一些大类型的容器进行拷贝，因为使用指针传参是将指针的值拷贝过来，因此如果是类对象这种大类型的，就是用引用，如果是数组，那么就使用指针</p>
-<h2 id="指针常量和常量指针"><a href="#指针常量和常量指针" class="headerlink" title="指针常量和常量指针"></a>指针常量和常量指针</h2><p>int * const p <em>&#x2F;&#x2F;指针常量</em></p>
-<p>指针常量，重点是在常量上，说明指针变量不允许修改。如同次指针指向一个地址该地址不能被修改(就是表示指针只能指向这个地址)，但是该地址里的内容可以被修改</p>
-<p>const int *p &#x3D; &a; <em>&#x2F;&#x2F;常量指针</em></p>
-<p>常量指针，强调的是指针，他表示指针指向的地址可以改变，但是指向的变量的值不能改变</p>
-<h2 id="排序的时间复杂度："><a href="#排序的时间复杂度：" class="headerlink" title="排序的时间复杂度："></a>排序的时间复杂度：</h2><p>快速排序的时间复杂度：最坏情况下是O(n2)，平均情况下是O(nlogn）<br>堆排序：O(nlogn）<br>归并排序：O(nlogn）<br>冒泡O(n2)<br>选择O(n2)<br>插入O(n2)</p>
-<h2 id="C-中struct和class的区别"><a href="#C-中struct和class的区别" class="headerlink" title="C++中struct和class的区别"></a>C++中struct和class的区别</h2><p>相同点<br>都用来自定义数据结构，两者都拥有公有和私有部分；<br>class完成的工作同样可以使用struct完成；</p>
-<p>不同点<br>struct默认是公有的，class则默认是私有的；<br>class默认是private继承， 而struct默认是public继承;<br>struct一般用于轻量级注重性能的场景中，class一般用于复杂的场景中；</p>
-<h2 id="strcpy和memcpy的区别还有sprintf"><a href="#strcpy和memcpy的区别还有sprintf" class="headerlink" title="strcpy和memcpy的区别还有sprintf"></a>strcpy和memcpy的区别还有sprintf</h2><p>1、复制的内容不同。strcpy只能复制字符串，而memcpy可以复制任意类型的内容，sprintf是将任意类型的数据转化为字符串类型</p>
-<p>2、实现的方法不同。strcpy不需要指定长度，它遇到被复制字符的串结束符”\0”才结束，所以容易溢出。memcpy则是根据其第3个参数决定复制的长度。</p>
-<p>执行效率不同，memcpy 最高，strcpy 次之，sprintf 的效率最低。</p>
-<h2 id="typedef-和define-有什么区别"><a href="#typedef-和define-有什么区别" class="headerlink" title="typedef 和define 有什么区别"></a>typedef 和define 有什么区别</h2><p>用法不同：typedef 用来定义一种<strong>数据类型</strong>的别名，增强程序的可读性。define 主要用来<strong>定义常量</strong>，以及书写复杂使用频繁的宏。</p>
-<p>执行时间不同：typedef 是编译过程的一部分，有类型检查的功能。define 是宏定义，是预编译的部分，其发生在编译之前，只是简单的进行字符串的替换，不进行类型的检查。</p>
-<p>作用域不同：typedef 有作用域限定。define 不受作用域约束，只要是在define 声明后的引用 都是正确的。</p>
-<p>对指针的操作不同：typedef 和define 定义的指针时有很大的区别。</p>
-<p>注意：typedef 定义是语句，因为句尾要加上分号。而define 不是语句，千万不能在句尾加分号。</p>
-<h2 id="全局变量如果被定义在头文件中会存在哪些问题？静态全局变量呢"><a href="#全局变量如果被定义在头文件中会存在哪些问题？静态全局变量呢" class="headerlink" title="全局变量如果被定义在头文件中会存在哪些问题？静态全局变量呢"></a>全局变量如果被定义在头文件中会存在哪些问题？静态全局变量呢</h2><p>如果全局变量定义在头文件中，而这个头文件被多个文件包含的时候，那么该全局变量就会被定义多次，导致重复定义，如果是静态全局变量的话，因为静态全局变量会将全局变量的作用范围缩小到当前文件的范围，所以一般不能讲静态全局变量定义在头文件中</p>
-<h2 id="C-lambda表达式-匿名函数、lambda函数-："><a href="#C-lambda表达式-匿名函数、lambda函数-：" class="headerlink" title="C++ lambda表达式(匿名函数、lambda函数)："></a>C++ lambda表达式(匿名函数、lambda函数)：</h2><p>lambda表达式就是匿名函数，lambda表达式由捕获列表、参数列表、可变规则、返回类型、函数体构成；具体如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[capture list] (parameter list) -&gt; return type</span><br><span class="line">&#123;</span><br><span class="line">   function body;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>1：捕获列表表示lambda表达式可以通过捕获列表访问一些上下文中的数据</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果不捕获任何变量，那么就是[]，[var]表示值传递方式捕获变量var，[=]表示值传递方式捕获所有父作用域的变量（包括this），捕获了之后就可以在lambda函数中使用这些变量</span><br></pre></td></tr></table></figure>
-
-<p>2：参数列表就跟普通的函数参数列表相同</p>
-<p>3：可变规则是因为一般常见的lambda表达式都是const属性的，而可变规则mutable修饰符就是取消其常量属性</p>
-<p>4：返回类型：lambda函数会自动推到函数返回值，因此一般不用特别说明返回值</p>
-<h2 id="全局变量和static全局变量的区别"><a href="#全局变量和static全局变量的区别" class="headerlink" title="全局变量和static全局变量的区别"></a>全局变量和static全局变量的区别</h2><p>相同点：<br>都是静态存储：全局变量本身就是静态存储方式，静态全局变量当然也是静态存储方式。</p>
-<p>不同点：<br>作用域：非静态全局变量的作用域是整个源程序，当一个源程序由多个原文件组成时，非静态的全局变量在各个源文件中都是有效的。静态全局变量则限制了其作用域，即只在定义该变量的源文件内有效。</p>
-<h2 id="快速排序和归并排序"><a href="#快速排序和归并排序" class="headerlink" title="快速排序和归并排序"></a>快速排序和归并排序</h2><p>归并排序和快排的相同点：<br>1，利用分治思想<br>2，具体实现都用递归<br>归并排序和快排的不同点： </p>
-<p>1，先分解再合并：归并排序先递归分解到一个元素，然后单个元素开始合并排序，自下而上的合并排序；<br>2，边分解边排序：快速排序每次都保证参照物左侧的数都小于参照值，右侧的大于参照值；是自上而下的排序；<br>3，归并排序不是原地排序，快速排序是原地排序，</p>
-<p>快速排序什么时候最好，什么时候最差：<br>最好：每次选择的点都能够正好的将序列分为大小接近相等的两部分<br>最差：原序列部分或者已经是有序的了，<br>每次都选择最小或者最大的点当哨位</p>
-<h2 id="sort函数内部如何实现"><a href="#sort函数内部如何实现" class="headerlink" title="sort函数内部如何实现"></a>sort函数内部如何实现</h2><p>sort不仅仅用了快速排序，还结合了插入排序和堆排序。<br>STL的sort算法，数据量大时采用快排算法。一旦分段后的数据量小于某个门槛（16），为避免快排的递归调用带来过大的额外负荷，就改用插入排序。如果递归层次过深，还会改用堆排序。</p>
-<h2 id="怎么解决递归过深引发的栈溢出问题？"><a href="#怎么解决递归过深引发的栈溢出问题？" class="headerlink" title="怎么解决递归过深引发的栈溢出问题？"></a>怎么解决递归过深引发的栈溢出问题？</h2><p>1：限制递归深度，可以将递归深度作为参数传递，达到一定限制后，结束递归<br>2：使用尾递归方法，因为函数调用会形成一个调用帧，而如果在函数A中在调用一个函数B，那么就会在A的调用帧上方在调用一个调用帧，以此类推，而尾递归是指在函数尾部进行递归调用，因为是在尾部，因此函数A的内部变量等信息用不到了，这样就不用保存函数A的调用帧，只需要将B的调用帧替代A的就好，</p>
-<h2 id="unordered-map-rehash过程"><a href="#unordered-map-rehash过程" class="headerlink" title="unordered_map rehash过程"></a>unordered_map rehash过程</h2><p>一般我们在使用unordered_map函数的时候，不会使用到rehash函数，当map容器已经填满时，unordered_map会自动调用rehash函数来增加容器的大小，同样的我们也可以自己手动的调用rehash函数来增加容器大小，将原来的元素重新映射到新的容器中</p>
-<h2 id="C-中的模板函数-模板类"><a href="#C-中的模板函数-模板类" class="headerlink" title="C++中的模板函数&#x2F;模板类"></a>C++中的模板函数&#x2F;模板类</h2><p>在 C++ 中，模板类是一种通用的类模板，允许我们定义一种可以用于多种数据类型的类。通过使用模板类，我们可以在不重复编写代码的情况下创建适用于不同类型的类实例。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">//1.泛化的Test类模板</span><br><span class="line">template&lt;class T, class U&gt; //这里相当于有两个模板，一个是T，一个是U，这里的类型根据传入的参数来具体指定</span><br><span class="line">class Test	&#123;</span><br><span class="line">	Test()&#123;cout &lt;&lt; &quot;泛化版本的构造函数&quot; &lt;&lt; endl;&#125;</span><br><span class="line">	void Func()&#123;cout &lt;&lt; &quot;泛化版本&quot; &lt;&lt; endl;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//2.全特化的Test类模板</span><br><span class="line">//当T和U这两个类型模板参数都为int类型时，做一个特化版本</span><br><span class="line">//全特化：就是所有类型模板参数(这里T 和 U),都用具体类型代表</span><br><span class="line">template&lt;&gt;	//全特化：所有类型模板参数都用具体类型代表，所以这里的template后面的&lt;&gt;里就为空</span><br><span class="line">class Test&lt;int,int&gt;	//上边的T绑定到这里的第一个int,上边的U绑定到这里的第二个int</span><br><span class="line">&#123;</span><br><span class="line">	Test()&#123;cout &lt;&lt; &quot;int , int的特化版本构造函数&quot; &lt;&lt; endl;&#125;</span><br><span class="line">	//可以该特化版本进行单独处理</span><br><span class="line">	void Func()&#123;cout &lt;&lt; &quot;int , int的特化版本&quot; &lt;&lt; endl;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">//全特化就表示模板类里没有模板，他根据自己类的特征，来具体将所有的模板参数来进行具体特化</span><br><span class="line">template&lt;&gt;	//全特化：所有类型模板参数都用具体类型代表，所以这里的template后面的&lt;&gt;里就为空</span><br><span class="line">class Test&lt;double, int&gt;	//上边的T绑定到这里的第一个int,上边的U绑定到这里的第二个int</span><br><span class="line">&#123;</span><br><span class="line">	Test()&#123;cout &lt;&lt; &quot;double , int的特化版本构造函数&quot; &lt;&lt; endl;&#125;</span><br><span class="line">	//可以该特化版本进行单独处理</span><br><span class="line">	void Func()&#123;cout &lt;&lt; &quot;double , int的特化版本&quot; &lt;&lt; endl;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">//偏特化就是表示没有将模板参数特化完，在具体特化的时候将模板的参数还要加入到具体的特化参数中</span><br><span class="line">//3.偏特化的类模板</span><br><span class="line">//从参数数量上进行偏特化，现在绑定两个类型模板参数</span><br><span class="line">template&lt;typename U&gt;	//留一个U类型模板参数</span><br><span class="line">class Test&lt;int, U, double&gt;&#123;</span><br><span class="line">	void Func() &#123; cout &lt;&lt; &quot;偏特化int ,U, double版本&quot; &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>模板类作为函数返回对象时需要使用typename来修饰，表示这个模板对象类是一个类型，typename就是做这个用的，反正只要是将模板类作为类型用，那么就必须需要typename</p>
-<p>在C++新特性中，模板是可以存在默认模板参数的，如果没有指定特定的类型，那么就使用默认模板参数</p>
-<h2 id="c-c-的区别："><a href="#c-c-的区别：" class="headerlink" title="c&#x2F;c++的区别："></a>c&#x2F;c++的区别：</h2><p>最主要的区别在于c是面向过程的，c++是面向对象的<br>他们的后缀不同，c的后缀是.c，c++的后缀是.cpp<br>c不支持函数重载，c++支持函数重载</p>
-<h2 id="虚函数和纯虚函数的区别："><a href="#虚函数和纯虚函数的区别：" class="headerlink" title="虚函数和纯虚函数的区别："></a>虚函数和纯虚函数的区别：</h2><p>虚函数是在基类中定义并实现了的，而纯虚函数是在基类中定义但是并没有实现，具体的实现要在子类中<br>子类继承了父类之后，子类也可以不对虚函数进行重写，但是对于纯虚函数来说，子类继承了父类之后，必须进行重写<br>带纯虚函数的类叫做抽象类，这种类不能直接生成对象，而只有被继承，并重写其虚函数后，才能使用</p>
-<h2 id="零拷贝"><a href="#零拷贝" class="headerlink" title="零拷贝"></a>零拷贝</h2><p>零拷贝就是一种避免 CPU 将数据从一块存储拷贝到另外一块存储的技术。<br>这其中也涉及到了emplace_back() push_back()的区别<br>使用push_back()函数需要调用拷贝构造函数，而使用emplace_back()插入的元素原地构造，不需要触发拷贝构造，效率更高。</p>
-<h2 id="一个空类会默认添加哪些函数"><a href="#一个空类会默认添加哪些函数" class="headerlink" title="一个空类会默认添加哪些函数"></a>一个空类会默认添加哪些函数</h2><ol>
-<li>Empty(); &#x2F;&#x2F; 默认构造函数 </li>
-<li>Empty( const Empty&amp; ); &#x2F;&#x2F; 默认拷贝构造函数 </li>
-<li>~Empty(); &#x2F;&#x2F; 析构函数 </li>
-<li>Empty&amp; operator&#x3D;( const Empty&amp; ); &#x2F;&#x2F; 默认赋值运算符函数</li>
-</ol>
-<h2 id="函数指针和指针函数-回调函数"><a href="#函数指针和指针函数-回调函数" class="headerlink" title="函数指针和指针函数(回调函数)"></a>函数指针和指针函数(回调函数)</h2><p>函数指针是强调的指针，他表示指向函数的指针，而指针函数强调的是函数，表示它的返回值是一个指针</p>
-<p>函数指针一般形式是void (*p) (int,int)</p>
-<p>函数指针一般用来表示回调函数，回调函数表示将函数指针作为函数的参数进行传递。回调函数就表示执行完当前函数之后，再去执行那个传进来的函数。</p>
-<h2 id="什么是一致性哈希"><a href="#什么是一致性哈希" class="headerlink" title="什么是一致性哈希"></a>什么是一致性哈希</h2><p>由于普通哈希算法实现的缓存负载均衡存在扩展能力和容错能力差问题，所以我们引入一致性哈希算法</p>
-<p>一致性哈希：就是普通取模哈希算法的改良版，哈希函数计算方法不变，只不过是通过构建环状的Hash空间代替普通的线性Hash空间，增强了扩展和容错能力</p>
-<h2 id="重载和覆盖-重写-的区别"><a href="#重载和覆盖-重写-的区别" class="headerlink" title="重载和覆盖(重写)的区别"></a>重载和覆盖(重写)的区别</h2><p>重载是水平的，覆盖是垂直的；<br>重载要求两个函数在同一作用域，并且函数名相同，参数类型和数目不同，返回值不同不算重载，重写指的是在派生类中覆盖基类的同名函数，基类的函数必须是虚函数，参数类型，数量，返回值都相同。</p>
-<h2 id="浅拷贝和深拷贝的区别"><a href="#浅拷贝和深拷贝的区别" class="headerlink" title="浅拷贝和深拷贝的区别"></a>浅拷贝和深拷贝的区别</h2><p>浅拷贝只是拷贝一个指针，并没有新开辟一个地址，拷贝的指针和原来的指针指向同一块地址，如果原来的指针所指向的资源释放了，那么再释放浅拷贝的指针的资源就会出现错误。</p>
-<p>深拷贝不仅拷贝值，还开辟出一块新的空间用来存放新的值，即使原先的对象被析构掉，释放内存了也不会影响到深拷贝得到的值。</p>
-<p>浅拷贝在对象的拷贝创建时存在风险，即被拷贝的对象析构释放资源之后，拷贝对象析构时会再次释放一个已经释放的资源。而深拷贝的结果是两个对象之间没有任何关系，各自成员地址不同。</p>
-<h2 id="什么是内存泄露，如何检测与避免"><a href="#什么是内存泄露，如何检测与避免" class="headerlink" title="什么是内存泄露，如何检测与避免"></a>什么是内存泄露，如何检测与避免</h2><p>C程序中允许使用<code>malloc</code>等函数在堆上申请内存，若申请的内存一直未释放或无法释放，最后会导致堆可用的空间越来越少，严重的会导致程序崩溃。常见的内存泄漏原因是申请了内存，但内存不再使用后却不释放，就会导致内存泄漏</p>
-<p>避免：</p>
-<ul>
-<li>计数法：使用new或者malloc时，让该数+1，delete或free时，该数-1，程序执行完打印这个计数，如果不为0则表示存在内存泄露</li>
-<li>有new就有delete，有malloc就有free，保证它们一定成对出现</li>
-<li>使用智能指针代替普通指针</li>
-<li>将内存的分配和释放封装到类中，将基类的析构函数声明为虚函数</li>
-</ul>
-<h2 id="类成员初始化方式？区别？构造函数的执行顺序-？为什么用成员初始化列表会快一些"><a href="#类成员初始化方式？区别？构造函数的执行顺序-？为什么用成员初始化列表会快一些" class="headerlink" title="类成员初始化方式？区别？构造函数的执行顺序 ？为什么用成员初始化列表会快一些"></a>类成员初始化方式？区别？构造函数的执行顺序 ？为什么用成员初始化列表会快一些</h2><p>主要是初始化列表方式少调用一次构造函数</p>
-<ol>
-<li>直接在函数体内进行赋值初始化；</li>
-<li>初始化列表进行初始化</li>
-</ol>
-<p>这两种方式的主要区别在于：</p>
-<p>构造函数的执行顺序是成员变量的声明顺序</p>
-<p>对于在函数体中初始化，是在所有的数据成员被分配内存空间后才进行的。</p>
-<p>列表初始化是给数据成员分配内存空间时就进行初始化，初始化这个数据成员此时函数体还未执行，因为用初始化列表会少调用一次构造函数，快一些</p>
-<h2 id="总结一下静态绑定和动态绑定的区别："><a href="#总结一下静态绑定和动态绑定的区别：" class="headerlink" title="总结一下静态绑定和动态绑定的区别："></a>总结一下静态绑定和动态绑定的区别：</h2><ul>
-<li>阶段：静态绑定发生在编译期，动态绑定发生在运行期；</li>
-<li>更改：动态绑定的动态类型可以更改，但是静态类型无法更改；</li>
-<li>情况：在继承体系中只有虚函数使用的是动态绑定，其他的全部是静态绑定；</li>
-</ul>
-<p>这个具体体现就是，当一个基类中的函数不是虚函数时，但是派生类中也有一个同名函数，这样当去声明定义一个派生类时，他具体调用哪个函数由这个对象具体的类型去确定，但是如果派生类继承了一个虚函数，那么就由这个指针指向的类型确定。</p>
-<p>虚函数才具有动态绑定</p>
-<h2 id="虚函数表"><a href="#虚函数表" class="headerlink" title="虚函数表"></a>虚函数表</h2><p>虚函数表（Virtual Function Table，简称 vtable）是 C++ 中用于实现多态性的关键机制之一。编译器在发现基类中有虚函数时，会自动为每个含有虚函数的类生成一份虚表，该表是一个一维数组，虚表里保存了虚函数的入口地址</p>
-<p>虚函数表的具体用途包括：</p>
-<p>实现动态绑定（Dynamic Binding）： 虚函数表用于在运行时确定对象调用的是哪个版本的虚函数。通过基类指针或引用调用虚函数时，程序会根据对象的实际指向的类型来调用对应的虚函数，而不是根据指针或引用的类型。这样就实现了运行时多态性。<br>支持抽象基类： 抽象基类是指包含纯虚函数的类，纯虚函数没有具体的实现，必须由派生类提供实现。通过在虚函数表中存储指向纯虚函数的指针，使得派生类可以覆盖基类的纯虚函数，从而实现多态性。<br>总之，虚函数表的存在使得 C++ 能够在运行时确定对象的实际类型，并且根据实际类型调用对应的虚函数，从而实现多态性和灵活的对象行为。</p>
-<p><strong>虚表指针</strong>：在含有虚函数的类实例化对象时，对象地址的前四个字节存储的指向虚表的指针(每个对象的前四个字节中保存一个虚表指针，这个指针指向对象所属类的虚表)</p>
-<p>在类中的虚函数个数在编译时期就可以确定，因此虚函数表的大小可以确定，虚函数表类似于一个static变量，就是它属于一个类中所有对象的，虚函数表存储在只读数据段rodata中。</p>
-<h2 id="什么函数不能声明为虚函数？"><a href="#什么函数不能声明为虚函数？" class="headerlink" title="什么函数不能声明为虚函数？"></a>什么函数不能声明为虚函数？</h2><p>1、静态成员函数； 2、类外的普通函数； 3、构造函数； 4、友元函数</p>
-<h2 id="为什么析构函数一般写成虚函数"><a href="#为什么析构函数一般写成虚函数" class="headerlink" title="为什么析构函数一般写成虚函数"></a>为什么析构函数一般写成虚函数</h2><p>如果基类的析构函数没有声明为虚函数，那么在调用基类指针的析构函数时，不管这个基类指针实际指向的对象是哪个，他只会调用基类指针的析构函数(因为是静态绑定)，所以基类的一些派生类对象没有进行析构，这样就会导致内存泄漏，只有将析构函数设置为虚函数，这样当基类指针指向派生类对象时，会先调用派生类的析构函数，之后因为派生类的虚构函数是继承自基类的，所以会自动去调用基类的析构函数，因此当删除基类的指针时，派生类的对象也会完全释放</p>
-<h2 id="为什么构造函数不能是虚函数"><a href="#为什么构造函数不能是虚函数" class="headerlink" title="为什么构造函数不能是虚函数"></a>为什么构造函数不能是虚函数</h2><p>1：虚函数的调用是通过虚函数表来调用的，而虚函数表是在对象构造完成之后才建立的，而如果把构造函数定义为虚函数，因为在执行构造函数前对象还没有构造完成，因此还没有虚函数表，所以构造函数就不能是虚函数。</p>
-<p>虚函数的调用需要虚函数表指针，而该指针存放在对象的内存空间中(在对象的前四个字节保存虚函数指针)；若构造函数声明为虚函数，那么由于对象还未创建，还没有内存空间，更没有虚函数表地址用来调用虚函数——构造函数了。</p>
-<h2 id="为什么默认的析构函数不是虚函数？"><a href="#为什么默认的析构函数不是虚函数？" class="headerlink" title="为什么默认的析构函数不是虚函数？"></a>为什么默认的析构函数不是虚函数？</h2><p>默认析构函数不是虚函数是因为虚函数需要额外占用空间来存储虚函数表和虚函数指针，如果对于不会被继承的类来说，将默认析构函数设置为虚函数会浪费存储空间</p>
-<h2 id="静态函数和虚函数有何区别？"><a href="#静态函数和虚函数有何区别？" class="headerlink" title="静态函数和虚函数有何区别？"></a>静态函数和虚函数有何区别？</h2><p><strong>静态函数在编译的时候就已经确定运行时机,虚函数在运行的时候动态绑定。</strong></p>
-<p>静态函数没有this指针，</p>
-<h2 id="父类对象可以赋值给子类指针吗"><a href="#父类对象可以赋值给子类指针吗" class="headerlink" title="父类对象可以赋值给子类指针吗"></a>父类对象可以赋值给子类指针吗</h2><p>不能，这个可以用面向对象编程的多态性来解释。多态，说白了，就是父类发出一个指令，得到不同的响应罢了，具体实现就是Parent p,然后分别指向不同的子类对象，之所以会有不同的响应是因为子类重写了该方法，即多态机制；但是，反过来就不行，因为子类可以有很多其他的方法，这是父类没有的，所以会报错。通俗点，老师是人，但人不一定是老师</p>
-<h2 id="什么时候会调用拷贝构造函数"><a href="#什么时候会调用拷贝构造函数" class="headerlink" title="什么时候会调用拷贝构造函数"></a>什么时候会调用拷贝构造函数</h2><p>1：当对象被当作函数参数传递的时候<br>2：当初始化的时候传入的是一个本类的对象<br>3：类的对象被当做是函数返回值</p>
-<h2 id="析构函数可以抛出异常吗？为什么不能抛出异常？除了资源泄露，还有其他需考虑的因素吗？"><a href="#析构函数可以抛出异常吗？为什么不能抛出异常？除了资源泄露，还有其他需考虑的因素吗？" class="headerlink" title="析构函数可以抛出异常吗？为什么不能抛出异常？除了资源泄露，还有其他需考虑的因素吗？"></a>析构函数可以抛出异常吗？为什么不能抛出异常？除了资源泄露，还有其他需考虑的因素吗？</h2><p>一般尽量不能让析构函数抛出异常，虽然从语法上来说，析构函数中是可以抛出异常的，但是抛出异常会引发一些问题，包括：<br>如果析构函数抛出异常，但是在异常抛出的时候对象的部分资源已经被销毁，这可能导致资源泄漏或者不一致的状态</p>
-<h2 id="c-stl中有没有线程安全的容器"><a href="#c-stl中有没有线程安全的容器" class="headerlink" title="c++ stl中有没有线程安全的容器"></a>c++ stl中有没有线程安全的容器</h2><p>c++stl中的容器一般都是线程不安全的，但是可以通过增加互斥锁来达到这样一个目的，但是会导致stl的性能下降</p>
-<h2 id="用到过那些C-11新特性"><a href="#用到过那些C-11新特性" class="headerlink" title="用到过那些C++11新特性"></a><strong>用到过那些C++11新特性</strong></h2><p>auto：让编译器在编译的时候就推导出变量的类型；<br>decltype：推到表达式的类型；<br>智能指针：智能指针是C++11库里的一个高级指针类，它能够自动管理动态分配的内存资源，并在适当的时候释放该资源，避免了内存泄漏和野指针等问题，</p>
-<p>std::function：这是一个可调用对象的通用类型，它可以存储任意可调用对象，如函数指针，<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1&spm=1001.2101.3001.7020">函数对象</a>，成员函数指针和lambda表达式，它可以作为函数的参数来传递，表示回调函数，也可以有其他的表示方法</p>
-<p>基本语法：std::function&lt;return_type(parameter_types)&gt; var_name;</p>
-<h2 id="数据结构栈和队列的区别？一般用在哪些场景，举例，栈和队列经常用的操作"><a href="#数据结构栈和队列的区别？一般用在哪些场景，举例，栈和队列经常用的操作" class="headerlink" title="数据结构栈和队列的区别？一般用在哪些场景，举例，栈和队列经常用的操作"></a>数据结构栈和队列的区别？一般用在哪些场景，举例，栈和队列经常用的操作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">栈是先入后出，队列是先入先出，</span><br></pre></td></tr></table></figure>
-
-<h2 id="介绍一下-堆-这个数据结构？"><a href="#介绍一下-堆-这个数据结构？" class="headerlink" title="介绍一下 堆 这个数据结构？"></a>介绍一下 堆 这个数据结构？</h2><p>堆是一个满足父子结点条件的完全二叉树，例如大根堆就是根节点是最大值</p>
-<h2 id="介绍一下动态规划的思想？上楼梯问题了解吗？用了动态规划和暴力时间复杂度分别是多少？"><a href="#介绍一下动态规划的思想？上楼梯问题了解吗？用了动态规划和暴力时间复杂度分别是多少？" class="headerlink" title="介绍一下动态规划的思想？上楼梯问题了解吗？用了动态规划和暴力时间复杂度分别是多少？"></a>介绍一下动态规划的思想？上楼梯问题了解吗？用了动态规划和暴力时间复杂度分别是多少？</h2><p>动态规划的思想类似于“我们要模拟完成一个大任务”，这个大任务可以分成若干个小任务，每个任务有若干种决策，每个任务完成后，就到达了一个阶段性状态，动态规划时间复杂度为O(n)</p>
-<h2 id="什么是稳定排序？"><a href="#什么是稳定排序？" class="headerlink" title="什么是稳定排序？"></a>什么是稳定排序？</h2><p>稳定排序指具有多个相同关键字的序列经过排序之后，这些记录的相对次序不变，则是稳定排序，稳定排序：冒泡排序，基数排序<br>不稳定排序：堆排序，快排</p>
-<h2 id="C-怎么实现多态"><a href="#C-怎么实现多态" class="headerlink" title="C++怎么实现多态"></a>C++怎么实现多态</h2><p>多态分为静态多态和动态多态</p>
-<p>静态多态：静态多态就是重载，因为在编译期间就可以确定，因此称为静态多态</p>
-<p>动态多态：动态多态就是虚函数 </p>
-<h2 id="虚函数表（vtable）它是如何在-C-中实现的"><a href="#虚函数表（vtable）它是如何在-C-中实现的" class="headerlink" title="虚函数表（vtable）它是如何在 C++ 中实现的"></a>虚函数表（vtable）它是如何在 C++ 中实现的</h2><p>虚函数表是一个数组，其中每个条目都是指向虚函数的指针。<br>每个类的虚函数表包含了该类中所有虚函数的地址，以及派生类中新增的虚函数的地址。<br>编译器生成虚函数表</p>
-<h2 id="delete-和-delete-的真正区别"><a href="#delete-和-delete-的真正区别" class="headerlink" title="delete 和 delete []的真正区别"></a>delete 和 delete []的真正区别</h2><p>c++中对new申请的内存的释放方式有delete和delete[]两种方式</p>
-<p>delete 释放new分配的单个对象指针指向的内存<br>delete[] 释放new分配的对象数组指针指向的内存</p>
-<p>针对简单类型 使用new分配后的不管是数组还是非数组形式内存空间用两种方式均可</p>
-<p> int *a &#x3D; new int[10];<br>  delete a;<br>  delete [] a;<br>  <strong>此种情况中的释放效果相同，原因在于：分配简单类型内存时，内存大小已经确定，系统可以记忆并且进行管理，在析构时，系统并不会调用析构函数，</strong></p>
-<p> 针对类Class，两种方式体现出具体差异 </p>
-<p> 当你通过下列方式分配一个类对象数组：<br>  class A<br>  {<br>  private:<br>   char *m_cBuffer;<br>   int m_nLen;<br>  public:<br>   A(){ m_cBuffer &#x3D; new char[m_nLen]; }<br>   ~A() { delete [] m_cBuffer; }<br>  };<br>  A *a &#x3D; new A[10];<br>  delete a;     <strong>&#x2F;&#x2F;仅释放了a指针指向的全部内存空间 但是只调用了a[0]对象的析构函数 剩下的从a[1]到a[9]这9个用户自行分配的m_cBuffer对应内存空间将不能释放</strong> 从而造成内存泄漏<br>  <strong>delete [] a;   &#x2F;&#x2F;调用使用类对象的析构函数释放用户自己分配内存空间并且  释放了a指针指向的全部内存空间</strong></p>
-<h2 id="左值引用和右值引用"><a href="#左值引用和右值引用" class="headerlink" title="左值引用和右值引用"></a>左值引用和右值引用</h2><p>左值引用：绑定到左值的引用，通过一个&amp;获得左值引用</p>
-<p>左值：就是在内存有确定存储地址、有变量名，表达式结束依然存在的值</p>
-<p>右值引用：绑定到右值的引用，通过一个&amp;&amp;获得右值引用</p>
-<p>右值：就是在内存没有确定存储地址、没有变量名，表达式结束就会销毁的值</p>
-<p>右值引用和左值引用的区别：</p>
-<p>（1）左值引用绑定到有确定存储空间以及变量名的对象上，表达式结束后对象依然存在；右值引用绑定到要求转换的表达式、字面常量、返回右值的表达式等临时对象上，赋值表达式结束后就对象就会被销毁。<br>（2）左值引用后可以利用别名修改左值对象；右值引用绑定的值不能修改。</p>
-<p>被const修饰的左值引用可以绑定右值，其他一般情况下左值引用不能绑定右值</p>
-<h2 id="智能指针？三大智能指针内部实现和做什么的"><a href="#智能指针？三大智能指针内部实现和做什么的" class="headerlink" title="智能指针？三大智能指针内部实现和做什么的"></a>智能指针？三大智能指针内部实现和做什么的</h2><p>智能指针是C++11库里的一个高级指针类，它能够自动管理动态分配的内存资源，并在适当的时候释放该资源，避免了内存泄漏和野指针等问题，</p>
-<p>常见的智能指针unique_ptr，shared_ptr，weak_ptr<br>shared_ptr通常用于一些资源创建昂贵比较耗时的场景，当需要共享资源的所有权时，例如，一个资源需要被多个对象共享，但是不知道哪个对象会最后释放它，这时候就可以使用std::shared_ptr<T>。<br>unique_ptr“独占”所指向的对象，unique_ptr有更小的内存，而且不需要维护引用计数，因此它的性能更好。当我们需要独占所指向的对象时，应该优先使用std::unique_ptr<br>weak_ptr，weak_ptr一般是通过shared_ptr来创建的，weak_ptr用来指向shared_ptr指向的对象，但是不会增加sheared_ptr的引用计数。只是一个观察者的角色，通过观察shared_ptr来判定资源是否存在<br>weak_ptr持有的引用计数，不是资源的引用计数，而是同一个资源的观察者的计数<br>weak_ptr没有提供常用的指针操作，无法直接访问资源，需要先通过lock方法提升为shared_ptr强智能指针，才能访问资源<br>shared_ptr实现原理：<br>主要涉及到引用计数和析构函数<br>shared_ptr 通过一个引用计数器来跟踪共享对象的引用次数。每当一个新的 shared_ptr 对象指向某个动态分配的内存资源时，引用计数器就会增加。当 shared_ptr 对象超出作用域、被赋予新值、或者被显式调用 reset() 等函数释放资源时，引用计数器就会减少。当引用计数器减少到零时，表示没有 shared_ptr 对象指向该内存资源，于是释放内存资源并销毁相关的控制块。</p>
-<p>shared_ptr 使用一个控制块来管理引用计数和指向动态内存的指针。主要是用来当没有指针指向动态内存的时候，能够正确的释放动态内存</p>
-<p>shared_ptr 的析构函数被设计为自动释放所管理的内存资源。当 shared_ptr 对象超出其作用域时，析构函数会自动被调用，引用计数减少，当引用计数减为零时，控制块会释放动态内存资源，从而避免内存泄漏。</p>
-<p>unique_ptr实现原理：<br>独占所有权：<br>unique_ptr 通过设计原则来保证对于同一个动态分配的内存资源，同一时间只能有一个 unique_ptr 指向它。这种独占所有权的设计使得 unique_ptr 不需要维护引用计数，从而避免了引用计数的开销。<br>控制块：<br>与 shared_ptr 类似，unique_ptr 也使用一个控制块来管理动态分配的内存资源。控制块通常包含一个指针成员，指向动态分配的内存资源，以及一个析构函数，用于释放内存资源。<br>析构函数：<br>unique_ptr 的析构函数被设计为自动释放所管理的内存资源。当 unique_ptr 对象超出其作用域时，析构函数会自动被调用，从而释放动态内存资源，避免内存泄漏。<br>移动语义：<br>移动语义是指unique_ptr可以将内存的所有权转让给其他的unique_ptr，使得在函数返回值或者容器元素传递时，可以高效的转移所有权，而不用将资源释放了，再将所有权转让。</p>
-<p>shared_ptr和unique_ptr都有一个控制块，它主要用来管理内存资源的，也就是当没有指针指向它的时候，用来释放内存资源的 </p>
-<h2 id="使用智能指针会出现什么问题？"><a href="#使用智能指针会出现什么问题？" class="headerlink" title="使用智能指针会出现什么问题？"></a>使用智能指针会出现什么问题？</h2><p>智能指针最容易出现的问题是循环引用，就是比如说有两个类，这两个类中各有指向另一个类的指针，然后再程序结束的时候，因为这两个类各有指针指向内存空间，因此释放不了。</p>
-<h2 id="为什么c-11要设计move"><a href="#为什么c-11要设计move" class="headerlink" title="为什么c++11要设计move"></a>为什么c++11要设计move</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">为了减少无意义的拷贝和减少内存资源的申请和释放</span><br></pre></td></tr></table></figure>
-
-<h2 id="如果要你设计一个shared-ptr指针，你会怎么设计-有哪些成员函数、成员变量"><a href="#如果要你设计一个shared-ptr指针，你会怎么设计-有哪些成员函数、成员变量" class="headerlink" title="如果要你设计一个shared_ptr指针，你会怎么设计(有哪些成员函数、成员变量)"></a>如果要你设计一个shared_ptr指针，你会怎么设计(有哪些成员函数、成员变量)</h2><p>这个类设计中，SharedPtr类包含了一个指向被管理资源的指针ptr和一个引用计数的指针refCount。当有新的SharedPtr对象指向相同资源时，它们共享同一个refCount，以便正确地跟踪引用计数。当最后一个SharedPtr对象销毁时，释放被管理资源。</p>
-<p>这个类还提供了拷贝构造函数、析构函数、赋值运算符重载，以及解引用操作符和成员访问操作符，使得其行为类似于原生指针。此外，还提供了use_count()函数用于获取当前引用计数，以及isNull()函数用于检查是否为空指针。</p>
-<h2 id="vector扩容机制："><a href="#vector扩容机制：" class="headerlink" title="vector扩容机制："></a>vector扩容机制：</h2><p>当向vector中插入元素时，如果元素有效个数size与空间容量capacity相等时，vector内部会触发扩容机制<br>vector的扩容会<br>1：拷贝旧元素<br>2：释放旧空间</p>
-<p>因为每次扩容都会拷贝元素并且释放旧空间，因此会产生一系列问题：<br>内存分配和复制：每次扩容都需要分配新的内存并复制旧元素，这是一个耗时的操作。<br>迭代器失效：扩容后，所有指向旧元素的迭代器、指针和引用都会失效。<br>频繁扩容：如果vector每次扩容的空间太小，可能会导致频繁扩容，影响性能。</p>
-<p>为了避免这些问题，可以采取以下措施：<br>预留容量：如果你提前知道需要存储的元素数量，可以使用reserve()方法预先分配足够的内存。<br>减少扩容次数：通过合理选择初始容量或使用reserve()来减少扩容的次数。</p>
-<p>windows使用1.5倍扩容，linux使用2倍扩容</p>
-<h2 id="函数的调用过程："><a href="#函数的调用过程：" class="headerlink" title="函数的调用过程："></a>函数的调用过程：</h2><p>当程序执行到一个函数调用语句时，控制流将跳转到被调用函数的起始位置，在函数内部，会创建局部变量来存储参数和在函数内部定义的变量。函数的代码被执行，在函数执行期间，程序可能会调用其他函数。如果函数有返回语句，它将返回一个值。在这种情况下，函数调用表达式可以被替换为返回值。<br>这里面还涉及到函数栈，每当调用函数的时候，都会创建一个函数栈帧(调用帧)并推入函数栈的顶部，</p>
-<p>多态是靠覆盖来实现的，派生类的对象可以赋值给基类的引用，具体调用那个虚函数是看对象是那个类型</p>
-<h2 id="C-为什么使用红黑树"><a href="#C-为什么使用红黑树" class="headerlink" title="C++为什么使用红黑树?"></a>C++为什么使用红黑树?</h2><p>红黑树(红黑树的五个特点)：红黑树，一种二叉查找树(二叉查找树表示树已经排序了，左子树小于根节点，右子树大于)，但在每个结点上增加一个存储位表示结点的颜色，二叉查找树的查找时间为O(lgn)<br>    1.节点要么为黑色要么为红色<br>    2.根节点为黑色<br>    3.叶子节点(Nil空节点)为黑色<br>    4.红色节点的孩子都为黑色节点<br>    5.任一节点到叶子节点的路径中黑色节点的数量一致。</p>
-<h2 id="讲一下set和unordered-set"><a href="#讲一下set和unordered-set" class="headerlink" title="讲一下set和unordered_set"></a>讲一下set和unordered_set</h2><p>set的底层是红黑树，unordered_set底层是哈希结构<br>set和unordered_set区别在于unordered_set不能对加入的数据进行自动排序<br>这两者都不能对容器内的元素进行随意更改数值，只能先删除之后再插入进行修改数值<br>set的插入查找删除操作因为底层是红黑树，所以时间复杂度是O(logn)，而unordered_set是常数级别的O(N);</p>
-<h2 id="什么时候必须使用初始化列表"><a href="#什么时候必须使用初始化列表" class="headerlink" title="什么时候必须使用初始化列表"></a>什么时候必须使用初始化列表</h2><ol>
-<li>当初始化一个引用成员变量时；</li>
-<li>初始化一个const成员变量时；<br>初始化列表中的初始化顺序是由类中的成员声明顺序决定的，不是初始化列表中的排列顺序决定的。</li>
-</ol>
-<h2 id="C-STL迭代器的原理"><a href="#C-STL迭代器的原理" class="headerlink" title="C++STL迭代器的原理"></a>C++STL迭代器的原理</h2><p>在C++中的STL容器中，有些容器（vector）可以通过下标索引的方式访问容器里面的数据，但是大部分的容器不能使用这种方式访问容器中的元素。为了统一不同容器的访问方式，STL为每种容器在实现的时候设计了一个内嵌的iterator类，迭代器的作用就是提供一个遍历容器内部所有元素的接口，因此迭代器的内部必须保存一个与容器相关联的指针，然后重载各种运算操作来方便遍历，例如++，——等运算符，<br>这个类似于智能指针，智能指针也是通过封装一个指针然后通过引用计数或者其他方法来达到自动释放内存的功能，智能指针也需要对-&gt;,++等运算符进行重载</p>
-<h2 id="什么是内存对齐"><a href="#什么是内存对齐" class="headerlink" title="什么是内存对齐"></a>什么是内存对齐</h2><p>内存对齐是指数据在内存中存储时按照一定规则进行排列，使得数据存储的起始地址符合特定的规定，在内存对齐的概念中，最常见的是按字节对齐。在按字节对齐的情况下，数据的起始地址必须是该数据类型所占内存字节大小的整数倍</p>
-<h2 id="map的迭代器失效怎么办"><a href="#map的迭代器失效怎么办" class="headerlink" title="map的迭代器失效怎么办"></a>map的迭代器失效怎么办</h2><p>删除STL容器vector、map中的元素，容易引起迭代器失效问题。<br>对于vector、deque，他们是序列式容器；当当前元素的iterator被删除后，其后的所有元素的迭代器都会失效，这是因为vector，deque都是连续存储的一段空间，当对其进行erase操作时，其后的每一个元素都会向前移一个位置。迭代器失效时会返回下一个有效的迭代器，it&#x3D;erase(it)。处理方式见，代码1-2。</p>
-<p>对于list,set,map，删除时只有被删除节点迭代器失效，处理方式在当前迭代器失效前指向下一个迭代器，即erase(it++)。</p>
-<p>这里主要解释一下erase(it++)的执行过程：这句话分三步走，先把iter传值到erase里面，然后iter自增，然后执行erase,所以iter在失效前已经自增了。</p>
-<h2 id="RAII机制"><a href="#RAII机制" class="headerlink" title="RAII机制"></a>RAII机制</h2><p>RAII全程为Resource Acquisition Is Initialization（资源获取即初始化），RAII是C++语法体系中的一种常用的合理管理资源避免出现内存泄漏的常用方法。以对象管理资源，利用的就是C++构造的对象最终会被对象的析构函数销毁的原则。RAII的做法是使用一个对象，在其构造时获取对应的资源，在对象生命期内控制对资源的访问，使之始终保持有效，最后在对象析构的时候，释放构造时获取的资源。</p>
-<p>这个方法具体的使用就是将对资源的操作封装成一个类，因为类的释放必然会调用析构函数，因此将资源的释放(或者是锁的释放)放到类的析构函数中去这样就保证了如果不再使用这个资源的时候，释放这个类后，必然会调用析构函数，那么就会释放掉这个资源的内存空间，就不会发生内存泄漏的风险。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>LRU</p>
-<p>LRU可以通过一个哈希表和双向链表来实现，双向链表按照被使用的顺序存储了这些键值对，靠近头部的键值对是最近使用的，而靠近尾部的键值对是最久未使用的，哈希表即为普通的哈希映射（HashMap），通过缓存数据的键映射到其在双向链表中的位置。我们首先使用哈希表进行定位，找出缓存项在双向链表中的位置，随后将其移动到双向链表的头部，即可在 O(1)O(1)O(1) 的时间内完成 get 或者 put 操作</p>
-<pre><code>struct DLinkedNode &#123;
-int key, value;
-DLinkedNode* prev;
-DLinkedNode* next;
-DLinkedNode(): key(0), value(0), prev(nullptr), next(nullptr) &#123;&#125;
-DLinkedNode(int _key, int _value): key(_key), value(_value), prev(nullptr), next(nullptr) &#123;&#125;
-&#125;;
-class LRUCache &#123;
-private:
-    unordered_map&lt;int, DLinkedNode*&gt; cache;
-    DLinkedNode* head;
-    DLinkedNode* tail;
-    int size;
-    int capacity;
-
-public:
-    LRUCache(int _capacity): capacity(_capacity), size(0) &#123;
-        // 使用伪头部和伪尾部节点
-        head = new DLinkedNode();
-        tail = new DLinkedNode();
-        head-&gt;next = tail;
-        tail-&gt;prev = head;
-    &#125;
-    
-    int get(int key) &#123;
-        if (!cache.count(key)) &#123;
-            return -1;
-        &#125;
-        // 如果 key 存在，先通过哈希表定位，再移到头部
-        DLinkedNode* node = cache[key];
-        moveToHead(node);
-        return node-&gt;value;
-    &#125;
-    
-    void put(int key, int value) &#123;
-        if (!cache.count(key)) &#123;
-            // 如果 key 不存在，创建一个新的节点
-            DLinkedNode* node = new DLinkedNode(key, value);
-            // 添加进哈希表
-            cache[key] = node;
-            // 添加至双向链表的头部
-            addToHead(node);
-            ++size;
-            if (size &gt; capacity) &#123;
-                // 如果超出容量，删除双向链表的尾部节点
-                DLinkedNode* removed = removeTail();
-                // 删除哈希表中对应的项
-                cache.erase(removed-&gt;key);
-                // 防止内存泄漏
-                delete removed;
-                --size;
-            &#125;
-        &#125;
-        else &#123;
-            // 如果 key 存在，先通过哈希表定位，再修改 value，并移到头部
-            DLinkedNode* node = cache[key];
-            node-&gt;value = value;
-            moveToHead(node);
-        &#125;
-    &#125;
-
-    void addToHead(DLinkedNode* node) &#123;
-        node-&gt;prev = head;
-        node-&gt;next = head-&gt;next;
-        head-&gt;next-&gt;prev = node;
-        head-&gt;next = node;
-    &#125;
-    
-    void removeNode(DLinkedNode* node) &#123;
-        node-&gt;prev-&gt;next = node-&gt;next;
-        node-&gt;next-&gt;prev = node-&gt;prev;
-    &#125;
-
-    void moveToHead(DLinkedNode* node) &#123;
-        removeNode(node);
-        addToHead(node);
-    &#125;
-
-    DLinkedNode* removeTail() &#123;
-        DLinkedNode* node = tail-&gt;prev;
-        removeNode(node);
-        return node;
-    &#125;
-&#125;;
-</code></pre>
-<p>memcpy</p>
-<p>void* memcpy(void *dst, const void *src, size_t size) {<br>    char *psrc, *pdst;<br>    if (dst &#x3D;&#x3D; NULL || src &#x3D;&#x3D; NULL)<br>        return NULL;<br>    if (dst &lt;&#x3D; str) {<br>        psrc &#x3D; src;<br>        pdst &#x3D; dst;<br>        while (size–)<br>            *pdst++ &#x3D; *psrc++;<br>    } else {<br>        psrc &#x3D; src + size - 1;<br>        pdst &#x3D; dst + size - 1;<br>        while (size–) {<br>            *pdst– &#x3D; *psrc–;<br>    }<br>    return pdst;<br>}</p>
-<p>快排</p>
-<p>public static void quickSort(int nums[], int start, int end) {<br>    &#x2F;&#x2F;数组有多个元素进行排序<br>    if (start &lt; end) {<br>        int base &#x3D; nums[start];&#x2F;&#x2F;以要进行排序数组第0个元素为base<br>        int left &#x3D; start;&#x2F;&#x2F;左指针<br>        int right &#x3D; end;&#x2F;&#x2F;右指针<br>        while (left &lt; right) {<br>            &#x2F;&#x2F;从右向左找，比base大，right–<br>            while (left&lt; right &amp;&amp; nums[right] &gt;&#x3D; base) {<br>                right–;<br>            }<br>            &#x2F;&#x2F;比base小，替换left所在位置的数字<br>            nums[left] &#x3D; nums[right];<br>            &#x2F;&#x2F;从左向右找，比base小，left++<br>            while (left &lt; right &amp;&amp; nums[left] &lt;&#x3D; base){<br>                left++;<br>            }<br>            &#x2F;&#x2F;比base大，替换right所在位置的数字<br>            nums[right] &#x3D; nums[left];<br>        }<br>        nums[left] &#x3D; base;&#x2F;&#x2F;此时left&#x3D;right，用base替换这个位置的数字<br>        &#x2F;&#x2F;排列比base小的数字的数组<br>        quickSort(nums, start, left - 1);<br>        &#x2F;&#x2F;排列比base大的数字的数组<br>        quickSort(nums, left + 1, end);<br>    }<br>}</p>
-
             
         </div>
     </div>
@@ -651,7 +341,7 @@ public:
         
         <span class="tag">
             
-            <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%96%E5%86%99c/" style="color: #00a596">高性能编写c++</a>
+            <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%96%E5%86%99c/" style="color: #ffa2c4">高性能编写c++</a>
         </span>
         
     </div>
@@ -690,7 +380,7 @@ public:
         
         <span class="tag">
             
-            <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #ffa2c4">文件管理系统</a>
+            <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="color: #00bcd4">文件管理系统</a>
         </span>
         
     </div>
@@ -738,7 +428,7 @@ public:
         
         <span class="tag">
             
-            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #ffa2c4">fastDFS集群</a>
+            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #00a596">fastDFS集群</a>
         </span>
         
     </div>
@@ -796,7 +486,7 @@ public:
         
         <span class="tag">
             
-            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #00bcd4">fastDFS集群</a>
+            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #ffa2c4">fastDFS集群</a>
         </span>
         
     </div>
@@ -842,7 +532,7 @@ public:
         
         <span class="tag">
             
-            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #ff7d73">fastDFS集群</a>
+            <a href="/tags/fastDFS%E9%9B%86%E7%BE%A4/" style="color: #ffa2c4">fastDFS集群</a>
         </span>
         
     </div>
@@ -869,58 +559,6 @@ public:
             
             <h3 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h3><p>使用fork，一个进程就是进程控制块，没创建一个进程最简单的方式就是复制。内核代码和数据都是一样的，有共享的程序运行空间，因此子进程和父进程有些数据是共享的。</p>
 <p>父子进程的时间片：当创建出子进程时，父进程将剩下的时间片一分为二给父子进程分。</p>
-<h3 id="子进程成为真正的进程"><a href="#子进程成为真正的进程" class="headerlink" title="子进程成为真正的进程"></a>子进程成为真正的进程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">execv</span>(可执行文件路径，参数)</span><br></pre></td></tr></table></figure>
-
-<p>系统调用execv()就是子进程执行一个新程序的方法之一。子进程调用execv之后，系统会立即为子进程加载可执行文件分配私有程序内存空间，从此子进程也成为一个真正的进程。使子进程能够有自己的用户堆栈和数据区。</p>
-<h3 id="进程地址空间划分"><a href="#进程地址空间划分" class="headerlink" title="进程地址空间划分"></a>进程地址空间划分</h3><ol>
-<li><p>文本段：也称为代码段，用于存储程序的机器代码指令，通常是可读的。</p>
-</li>
-<li><p>数据段：包括初始化的全局变量和静态变量，以及显式初始化的局部静态变量。</p>
-</li>
-<li><p>BSS段：包括未初始化的全局变量和静态变量，在程序启动时会被初始化为0；</p>
-</li>
-<li><p>堆：用于动态分配内存，即运行时动态分配的内存空间。在堆上的内存需要由程序员显示申请和释放，通常使用malloc()、calloc()、realloc()等函数进行分配，使用free()函数进行释放。</p>
-</li>
-<li><p>栈：用于存储函数的局部变量、函数参数、函数调用的返回地址等信息。先进先出，函数调用会分配栈帧，返回时会释放栈帧。</p>
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/a343bd81c75c0d70f56b25ff3fd96243.png" alt="img"></p>
-</li>
-</ol>
-<h3 id="wait（）"><a href="#wait（）" class="headerlink" title="wait（）"></a>wait（）</h3><p>父进程等待子进程结束释放子进程的资源。子进程退出，没有用wait释放资源将会导致进程号被僵尸进程占用浪费。</p>
-<h3 id="exit"><a href="#exit" class="headerlink" title="exit()"></a>exit()</h3><p>子进程调用exit会立即退出，使进程成为一个僵尸进程。进程调用_exit()后不会清理i&#x2F;o缓存，直接通过系统调用，终止运行，而exit()会清理缓存，将缓冲区的数据写入文件。</p>
-<h3 id="I-O缓存"><a href="#I-O缓存" class="headerlink" title="I&#x2F;O缓存"></a>I&#x2F;O缓存</h3><p>printf、fopen、fread、fwrite都在内。特征是没打开一个文件都存在一个缓冲区中，防止频繁访问磁盘。</p>
-<ol>
-<li>刷新缓存：手动刷新使用fflush(),遇见\n、EOF自动刷新缓存，将数据从缓存区写入文件。</li>
-<li>当缓冲区满了之后，缓冲区的内容会写入文件。</li>
-</ol>
-<h3 id="vfork系统调用"><a href="#vfork系统调用" class="headerlink" title="vfork系统调用"></a>vfork系统调用</h3><p>vfork()与fork不同，不是把父进程复制到子进程，而是用赋值指针的方法使父子进程的资源实现共享。父子进程共享同一块内存空间，因此这实际上是创建一个线程。</p>
-<h4 id="fork-和vfork-的区别"><a href="#fork-和vfork-的区别" class="headerlink" title="fork()和vfork()的区别"></a>fork()和vfork()的区别</h4><p>fork()父子进程复制数据段和代码段。vfork()父子进程共享数据段。</p>
-<p>fork()父子进程的执行顺序不确定。vfork()可以保证子进程先运行，在调用execv()或exit()之前，与父进程数据共享，在调用execv()或exit()之后父进程才能被调度运行。因此，<strong>如果子进程调用这两个函数之前依赖父进程的进一步动作，就会死锁</strong>。</p>
-<h3 id="kernel-thread"><a href="#kernel-thread" class="headerlink" title="kernel_thread()"></a>kernel_thread()</h3><p>这个函数是linux用来单独创建内核线程的函数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">kernel_thread</span><span class="params">(<span class="type">int</span> (*fn)(<span class="type">void</span>*),<span class="type">void</span>* arg,<span class="type">unsigned</span> <span class="type">long</span> flags)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>fn指向线程代码，arg为线程所需的入口参数。</p>
-<h3 id="进程0"><a href="#进程0" class="headerlink" title="进程0"></a>进程0</h3><p>计算机启动之后，linux在内核加载之后，通过初始化函数start_kerenl()创建一个内核线程，我们将这个线程称为进程0。当系统没有其它可运行进程时，调度器才会选择进程0来运行。</p>
-<h3 id="进程1"><a href="#进程1" class="headerlink" title="进程1"></a>进程1</h3><p>进程1就是init进程，它是内核初始化时创建的第2个内核线程。调用execv()之后，进程变成用户进程的根进程。该进程的函数会创建kswapd()等4个与内存管理有关的内核线程。</p>
-<h3 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h3><p>守护进程不受端控制并在后台运行的进程。它们会做一些经常性的注入定期进行页交换之类的例行工作。</p>
-<p><strong>守护进程启动</strong></p>
-<ol>
-<li>在系统启动脚本运行，启动脚本一般放在&#x2F;etc&#x2F;tc.d目录下</li>
-<li>利用超级服务器启动，大部分网络服务器都是这样启动，如ftp、telnet等</li>
-<li>由cron定时启动以及在终端用nohup启动的进程也叫守护进程。</li>
-</ol>
-<h3 id="孤儿进程"><a href="#孤儿进程" class="headerlink" title="孤儿进程"></a>孤儿进程</h3><p>父进程先于子进程终止，子进程的父亲变成进程init（进程1），由进程1来回收它们的资源。</p>
-<h3 id="僵尸进程"><a href="#僵尸进程" class="headerlink" title="僵尸进程"></a>僵尸进程</h3><p>子进程已经终止，但是父进程还未读取它的退出状态，这种子进程会形成僵尸进程。</p>
-<p>当一个子进程结束时，操作系统会发一个信号**(SIGCHLD)<strong>给父进程，通知它子进程已经终止。父进程需要使用wait()或者waitpid()系统调用来读取子进程的退出状态。</strong>wait和waitpid**的区别：wait会阻塞父进程，直到等待到任意一个子进程退出，并返回子进程的pid。waitpid等待指定pid的子进程退出，并且它的行为不会被其它子进程所阻塞。如果pid设置为-1，就代表等待的是所有子进程，退化为waitpid。</p>
-<h3 id="system函数"><a href="#system函数" class="headerlink" title="system函数"></a>system函数</h3><p>可以执行程序中的shell命令。提供了调用操作系统的命令解释器。</p>
-<pre><code class="c++">#include &quot;stdlib.h&quot;
-
-int main()
-&#123;
-    system(&quot;ls -al&quot;);
-    return 0;
-&#125;
-</code></pre>
-
             
         </div>
     </div>
@@ -934,7 +572,7 @@ int main()
         
         <span class="tag">
             
-            <a href="/tags/linux/" style="color: #00bcd4">linux</a>
+            <a href="/tags/linux/" style="color: #00a596">linux</a>
         </span>
         
     </div>
@@ -988,7 +626,7 @@ int main()
         
         <span class="tag">
             
-            <a href="/tags/c/" style="color: #ff7d73">c++</a>
+            <a href="/tags/c/" style="color: #03a9f4">c++</a>
         </span>
         
     </div>
